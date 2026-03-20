@@ -29,7 +29,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
     <div className="fixed inset-0 flex flex-col items-center justify-center z-50 overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0"
+        className="fixed inset-0 z-0 opacity-70 pointer-events-none"
         style={{
           backgroundImage: `url(${APP_CONFIG.landing1.background})`,
           backgroundSize: 'cover',

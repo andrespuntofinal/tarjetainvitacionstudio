@@ -21,7 +21,7 @@ export default function EventDetails() {
   return (
     <section className={`${APP_CONFIG.eventDetails.backgroundColor} py-20 px-6`}>
       <div className="max-w-5xl mx-auto">
-        <h2 className="font-serif text-3xl text-center mb-16 text-[#F7F9FA]">Detalles del Evento</h2>
+        <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">Detalles del Evento</h2>
         <div className="grid md:grid-cols-2 gap-12">
           {details.map((item, index) => (
             <motion.div
@@ -29,9 +29,9 @@ export default function EventDetails() {
               initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-[#F7F9FA] to-[#E8E2D9] p-10 rounded-3xl shadow-lg flex flex-col items-center text-center border border-[#D7B272]/30"
+              className=" p-10 rounded-3xl shadow-lg flex flex-col items-center text-center"
             >
-              <div className="w-16 h-16 bg-[#19284c]/5 rounded-full flex items-center justify-center mb-6 border border-[#D7B272]/20">
+              <div className="w-16 h-16 bg-[#19284c] rounded-full flex items-center justify-center mb-6 border border-[#D7B272]/20">
                 <item.icon className="w-8 h-8 text-[#D7B272]" />
               </div>
               <h3 className="font-serif text-2xl mb-6 text-[#19284c]">{item.title}</h3>

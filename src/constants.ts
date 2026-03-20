@@ -42,16 +42,22 @@ export interface AppConfig {
   };
   calendar: {
     dateText: string;
+    dateImg: string;
     backgroundColor: string;
     textColor: string;
   };
   carousel: {
+    carouselMsg: string;
     images: string[];
     autoPlayInterval: number;
     backgroundColor: string;
   };
   dressCode: {
     text: string;
+    dressCodeTextWomen: string;
+    dressCodeTextMen: string;
+    dressCodeIconWomen: string;
+    dressCodeIconMen: string;
     iconColor: string;
     backgroundColor: string;
   };
@@ -141,19 +147,21 @@ export const APP_CONFIG: AppConfig = {
     text: "Dios nos ha unido para formar una familia maravillosa",
     font: "'Cormorant Garamond', serif",
     color: "text-[#19284c]",
-    background: "w-full h-full my-4 md:my-0 bg-[rgba(25,40,76,0.16)] backdrop-blur-lg shadow-[0_10px_40px_rgba(25,40,76,0.16)] border border-[#D7B272]/10 relative overflow-hidden",
+    background: "w-full h-full my-4 md:my-0  backdrop-blur-lg  relative overflow-hidden",
   },
   countdown: {
-    backgroundColor: "w-full h-full md:rounded-3xl bg-[rgba(25,40,76,0.16)] backdrop-blur-lg shadow-[0_10px_40px_rgba(25,40,76,0.16)] border border-[#D7B272]/10 relative overflow-hidden",
+    backgroundColor: "w-full h-full md:rounded-3xl bg-[rgba(25, 40, 76, 0)] backdrop-blur-lg  relative overflow-hidden",
     textColor: "text-[#F7F9FA]",
     labelColor: "text-[#A5ADB8]",
   },
   calendar: {
     dateText: "17 de Noviembre, 2026",
-    backgroundColor: "w-full h-full md:rounded-3xl bg-[rgba(25,40,76,0.16)] backdrop-blur-lg shadow-[0_10px_40px_rgba(25,40,76,0.16)] border border-[#D7B272]/10 relative overflow-hidden",
+    dateImg: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773967106/PREBODA_Andres_y_Johana-114_a9p7pe.jpg",
+    backgroundColor: "w-full h-full md:rounded-3xl  backdrop-blur-lg  relative overflow-hidden",
     textColor: "text-[#19284c]",
   },
   carousel: {
+    carouselMsg: "Nuestros momentos",
     images: [
       "https://picsum.photos/seed/couple1/800/600",
       "https://picsum.photos/seed/couple2/800/600",
@@ -162,12 +170,16 @@ export const APP_CONFIG: AppConfig = {
       "https://picsum.photos/seed/couple5/800/600",
     ],
     autoPlayInterval: 3000,
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl bg-gradient-to-br from-[#19284c] to-[#27272B] border-y md:border border-[#D7B272]/20",
+    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl ackdrop-blur-lg  relative overflow-hidden",
   },
   dressCode: {
     text: "Mujer: Vestido elegante (no blanco) - Hombre: Traje elegante",
+    dressCodeTextWomen: "Vestido elegante (no blanco)",
+    dressCodeTextMen: "Traje elegante",
+    dressCodeIconWomen: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773940159/womenico_vnki8h.png",
+    dressCodeIconMen: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773939750/menicon_m1huiv.png",
     iconColor: "text-[#D7B272]",
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl bg-gradient-to-br from-[#F7F9FA] to-[#E8E2D9] border-y md:border border-[#D7B272]/30",
+    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl backdrop-blur-lg relative overflow-hidden",
   },
   eventDetails: {
     ceremony: {
@@ -178,13 +190,13 @@ export const APP_CONFIG: AppConfig = {
       place: "Salón de Eventos AmorReal",
       time: "7:00 PM",
     },
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl bg-gradient-to-br from-[#19284c] to-[#27272B] border-y md:border border-[#D7B272]/20",
+    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl  backdrop-blur-lg relative overflow-hidden",
     textColor: "text-[#F7F9FA]",
   },
   timeline: {
     font: "'Cormorant Garamond', serif",
     textColor: "text-[#19284c]",
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl bg-gradient-to-br from-[#F7F9FA] to-[#E8E2D9] border-y md:border border-[#D7B272]/30",
+    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl backdrop-blur-lg relative overflow-hidden",
     iconStep1: "Church",
     iconStep2: "Camera",
     iconStep3: "Wine",
@@ -202,10 +214,10 @@ export const APP_CONFIG: AppConfig = {
     timeStep5: "8:00 pm",
   },
   rsvp: {
-    buttonText: "Quiero asistir",
+    buttonText: "Confirmar asistencia",
     successMessage: "Es un honor contar con tu asistencia a nuestra boda, gracias por confirmar",
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl bg-gradient-to-br from-[#19284c] to-[#27272B] border-y md:border border-[#D7B272]/20",
-    buttonColor: "bg-[#D7B272]",
+    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl relative overflow-hidden",
+    buttonColor: "bg-[#19284c]",
   },
   landing2Background: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773861644/texturamain_eg3hpd.png",
   googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbzrYOi4H3XGg2VmAdTaMr7O_ySoQYD3dU2nL9EiUd3VTs_8xlr4hJFXKgSC_JbEQd83/exec", // Pega aquí la URL de tu Google Apps Script

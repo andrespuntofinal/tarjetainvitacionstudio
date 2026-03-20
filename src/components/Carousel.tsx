@@ -21,9 +21,12 @@ export default function Carousel() {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <section className={`${APP_CONFIG.carousel.backgroundColor} py-20 px-4`}>
-      <div className="max-w-4xl mx-auto relative group">
-        <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl relative border border-[#D7B272]/20">
+    <section className={`${APP_CONFIG.carousel.backgroundColor} py-12 px-6 flex flex-col justify-center items-center`}>
+      <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">
+        {APP_CONFIG.carousel.carouselMsg}
+      </h2>
+      <div className="w-full max-w-4xl mx-auto relative group">
+        <div className="aspect-video md:aspect-[21/9] overflow-hidden rounded-2xl shadow-[0_0_15px_rgba(215,178,114,0.15)] relative border border-[#616E33]/50 bg-[#19284c]">
           <AnimatePresence mode="wait">
             <motion.img
               key={currentIndex}
@@ -42,13 +45,13 @@ export default function Carousel() {
         {/* Controls */}
         <button 
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#F7F9FA]/80 text-[#19284c] p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#F7F9FA]"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#19284c]/80 text-[#D7B272] border border-[#D7B272]/50 p-2 rounded-full shadow-[0_0_10px_rgba(215,178,114,0.2)] opacity-0 group-hover:opacity-100 transition-all hover:bg-[#19284c] hover:scale-110"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button 
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#F7F9FA]/80 text-[#19284c] p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#F7F9FA]"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#19284c]/80 text-[#D7B272] border border-[#D7B272]/50 p-2 rounded-full shadow-[0_0_10px_rgba(215,178,114,0.2)] opacity-0 group-hover:opacity-100 transition-all hover:bg-[#19284c] hover:scale-110"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -60,7 +63,7 @@ export default function Carousel() {
               key={i}
               onClick={() => setCurrentIndex(i)}
               className={`w-2 h-2 rounded-full transition-all ${
-                i === currentIndex ? "bg-[#D7B272] w-6" : "bg-[#A5ADB8]/50"
+                i === currentIndex ? "bg-[#D7B272] w-6 shadow-[0_0_5px_rgba(215,178,114,0.5)]" : "bg-[#A5ADB8]/50 hover:bg-[#A5ADB8]"
               }`}
             />
           ))}

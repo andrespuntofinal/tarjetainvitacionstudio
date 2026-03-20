@@ -41,10 +41,12 @@ export default function Countdown() {
   ];
 
   return (
-    <section className={`${APP_CONFIG.countdown.backgroundColor} py-16 px-6 flex flex-col justify-center`}>
-      <div className="w-full max-w-4xl mx-auto text-center">
-        <h2 className="font-serif text-3xl mb-10 text-[#D7B272]">! Tan sólo faltan !</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+    <section className={`${APP_CONFIG.countdown.backgroundColor} py-12 px-2 md:px-6 flex flex-col justify-center`}>
+      <div className="w-full max-w-3xl mx-auto text-center">
+        <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">
+          Falta muy poco
+        </h2>
+        <div className="flex flex-row justify-center items-center gap-2 md:gap-8">
           {items.map((item, index) => (
             <motion.div
               key={item.label}
@@ -54,15 +56,16 @@ export default function Countdown() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 0 20px rgba(215, 178, 114, 0.6)",
-                borderColor: "#D7B272"
+                boxShadow: "0 0 20px rgba(215, 178, 114, 0.4)",
+                borderColor: "#D7B272",
+                backgroundColor: "rgba(97, 110, 51, 0.2)"
               }}
-              className="flex flex-col items-center p-6 rounded-2xl border border-[#616E33]/50 bg-[#19284c] shadow-[0_0_10px_rgba(215,178,114,0.2)] transition-all duration-300"
+              className="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full border border-[#616E33]/50 bg-[#19284c] shadow-[0_0_10px_rgba(215,178,114,0.15)] transition-all duration-300"
             >
-              <span className={`text-4xl md:text-5xl font-serif text-[#F7F9FA]`}>
+              <span className={`text-2xl sm:text-3xl md:text-5xl font-serif text-[#F7F9FA] leading-none`}>
                 {item.value}
               </span>
-              <span className={`text-xs md:text-sm uppercase tracking-widest mt-3 text-[#A5ADB8]`}>
+              <span className={`text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest mt-1 md:mt-2 text-[#A5ADB8]`}>
                 {item.label}
               </span>
             </motion.div>

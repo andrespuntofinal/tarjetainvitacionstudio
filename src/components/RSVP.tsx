@@ -11,10 +11,10 @@ export default function RSVP() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    const scriptUrl = APP_CONFIG.googleAppsScriptUrl || import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
-
+    setIsSubmitting(true);      
+    
+    const scriptUrl = APP_CONFIG.googleAppsScriptUrl || (import.meta as any).env?.VITE_GOOGLE_APPS_SCRIPT_URL;
+    
     if (scriptUrl) {
       try {
         const data = new FormData();
@@ -51,7 +51,7 @@ export default function RSVP() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h2 className="font-serif text-3xl mb-8 text-[#F7F9FA]">¿Nos acompañas?</h2>
+              <h2 className="font-serif text-3xl text-center mb-0 text-[#19284c]"></h2>
               
               {!isFormVisible ? (
                 <button
@@ -68,6 +68,7 @@ export default function RSVP() {
                   className="space-y-6 text-left"
                 >
                   <div>
+                    <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">Confirmar asistencia</h2>
                     <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-4">
                       ¿Asistirás al evento?
                     </label>
@@ -77,8 +78,8 @@ export default function RSVP() {
                         onClick={() => setFormData({ ...formData, attendance: "yes" })}
                         className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
                           formData.attendance === "yes"
-                            ? "border-[#D7B272] bg-[#D7B272] text-[#19284c]"
-                            : "border-[#A5ADB8]/50 text-[#F7F9FA] hover:border-[#D7B272]"
+                            ? "border-[#D7B272] bg-[#19284c] text-[#A5ADB8]"
+                            : "border-[#A5ADB8]/50 text-[#A5ADB8] hover:border-[#D7B272]"
                         }`}
                       >
                         Sí asistiré
@@ -88,8 +89,8 @@ export default function RSVP() {
                         onClick={() => setFormData({ ...formData, attendance: "no" })}
                         className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
                           formData.attendance === "no"
-                            ? "border-[#D7B272] bg-[#D7B272] text-[#19284c]"
-                            : "border-[#A5ADB8]/50 text-[#F7F9FA] hover:border-[#D7B272]"
+                            ? "border-[#D7B272] bg-[#19284c] text-[#A5ADB8]"
+                            : "border-[#A5ADB8]/50 text-[#A5ADB8] hover:border-[#D7B272]"
                         }`}
                       >
                         No podré asistir
@@ -106,7 +107,7 @@ export default function RSVP() {
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#A5ADB8]/30 bg-[#F7F9FA]/10 text-[#F7F9FA] focus:ring-2 focus:ring-[#D7B272] focus:border-transparent outline-none transition-all placeholder:text-[#A5ADB8]/50"
+                      className="w-full px-4 py-3 rounded-xl border border-[#A5ADB8] bg-[#F7F9FA]/10 text-[#27272B] focus:ring-2 focus:ring-[#D7B272] focus:border-transparent outline-none transition-all placeholder:text-[#A5ADB8]/50"
                       placeholder="Tu nombre"
                     />
                   </div>
@@ -117,14 +118,14 @@ export default function RSVP() {
                     <textarea
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#A5ADB8]/30 bg-[#F7F9FA]/10 text-[#F7F9FA] focus:ring-2 focus:ring-[#D7B272] focus:border-transparent outline-none transition-all h-32 resize-none placeholder:text-[#A5ADB8]/50"
+                      className="w-full px-4 py-3 rounded-xl border border-[#A5ADB8] bg-[#F7F9FA]/10 text-[#27272B] focus:ring-2 focus:ring-[#D7B272] focus:border-transparent outline-none transition-all h-32 resize-none placeholder:text-[#A5ADB8]/50"
                       placeholder="Escribe algo lindo..."
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#D7B272] text-[#19284c] py-4 rounded-xl font-bold hover:bg-[#D7B272]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
+                    className="w-full bg-[#19284c] text-[#E8E2D9] py-4 rounded-xl font-bold hover:bg-[#616E33]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
                   >
                     {isSubmitting ? (
                       <span className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

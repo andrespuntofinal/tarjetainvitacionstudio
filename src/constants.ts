@@ -157,7 +157,7 @@ export const APP_CONFIG: AppConfig = {
   calendar: {
     dateText: "17 de Noviembre, 2026",
     dateImg: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773967106/PREBODA_Andres_y_Johana-114_a9p7pe.jpg",
-    backgroundColor: "w-full h-full md:rounded-3xl  backdrop-blur-lg  relative overflow-hidden",
+    backgroundColor: "w-full md:w-[55%] max-w-6xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl bg-[#19284c] border-y md:border border-[#D7B272]/20",
     textColor: "text-[#19284c]",
   },
   carousel: {

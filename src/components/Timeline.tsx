@@ -16,7 +16,7 @@ export default function Timeline() {
 
   const renderIcon = (iconName: string) => {
     const IconComponent = (Icons as any)[iconName] || Icons.Circle;
-    return <IconComponent className="w-8 h-8 text-[#D7B272] group-hover:text-[#F7F9FA] transition-colors duration-300" strokeWidth={1.5} />;
+    return <IconComponent className="w-8 h-8 text-[#F7F9FA] group-hover:text-[#F7F9FA] transition-colors duration-300" strokeWidth={1.5} />;
   };
 
   return (
@@ -41,7 +41,7 @@ export default function Timeline() {
                 transition={{ delay: index * 0.1 }}
                 className="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 group"
               >
-                <div className="w-20 h-20 bg-[#19284c] rounded-full flex items-center justify-center mb-6 border-4 border-[#F7F9FA] shadow-xl group-hover:scale-110 group-hover:bg-[#616E33] group-hover:border-[#D7B272]/30 transition-all duration-300">
+                <div className="w-20 h-20 bg-[#19284c] rounded-full flex items-center justify-center mb-6 border-4 border-[#A5ADB8] shadow-xl group-hover:scale-110 group-hover:bg-[#616E33]/30 group-hover:border-[#D7B272]/30 transition-all duration-300">
                   {renderIcon(step.iconName)}
                 </div>
                 

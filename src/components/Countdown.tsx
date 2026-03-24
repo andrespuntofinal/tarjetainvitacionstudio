@@ -43,9 +43,7 @@ export default function Countdown() {
   return (
     <section className={`${APP_CONFIG.countdown.backgroundColor} py-12 px-2 md:px-6 flex flex-col justify-center`}>
       <div className="w-full max-w-3xl mx-auto text-center">
-        <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">
-          Falta muy poco
-        </h2>
+        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#D7B272] tracking-widest uppercase">Tan sólo fantan</h2>
         <div className="flex flex-row justify-center items-center gap-2 md:gap-8">
           {items.map((item, index) => (
             <motion.div
@@ -56,11 +54,11 @@ export default function Countdown() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 0 20px rgba(215, 178, 114, 0.4)",
+                boxShadow: "#D7B272",
                 borderColor: "#D7B272",
-                backgroundColor: "rgba(97, 110, 51, 0.2)"
+                backgroundColor: "#E8E2D9"
               }}
-              className="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full border border-[#616E33]/50 bg-[#19284c] shadow-[0_0_10px_rgba(215,178,114,0.15)] transition-all duration-300"
+              className="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full border-4 border-[#A5ADB8] bg-[#19284c] shadow-xl  transition-all duration-300"
             >
               <span className={`text-2xl sm:text-3xl md:text-5xl font-serif text-[#F7F9FA] leading-none`}>
                 {item.value}

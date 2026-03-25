@@ -16,40 +16,36 @@ export default function Timeline() {
 
   const renderIcon = (iconName: string) => {
     const IconComponent = (Icons as any)[iconName] || Icons.Circle;
-    return <IconComponent className="w-8 h-8 text-[#F7F9FA] group-hover:text-[#F7F9FA] transition-colors duration-300" strokeWidth={1.5} />;
+    return <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#D7B272] group-hover:text-[#F7F9FA] transition-colors duration-300 mb-0.5 md:mb-1" strokeWidth={1.5} />;
   };
 
   return (
-    <section className={`${timeline.backgroundColor} py-16 px-6`}>
+    <section className={`${timeline.backgroundColor} py-12 px-2 md:px-6`}>
       <div className="max-w-5xl mx-auto">
-        <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">Itinerario</h2>
+        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-12 tracking-widest uppercase text-[#735309]">
+          Itinerario
+        </h2>
 
-        <div className="relative">
-          {/* Horizontal line for desktop */}
-          <div className="hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-[#D7B272]/50 z-0" />
-          
-          {/* Vertical line for mobile */}
-          <div className="md:hidden absolute left-1/2 top-10 bottom-10 w-0.5 bg-[#D7B272]/50 -translate-x-1/2 z-0" />
+        <div className="relative w-full px-1 md:px-4">
+          {/* Horizontal line for both mobile and desktop */}
+          <div className="absolute top-1/2 left-[5%] right-[5%] h-0.5 bg-[#A5ADB8] -translate-y-1/2 z-0" />
 
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 md:gap-4">
+          <div className="flex flex-row justify-between items-center gap-1 sm:gap-2 md:gap-4 relative z-10">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative z-10 flex flex-col items-center text-center w-full md:w-1/5 group"
+                className="flex flex-col items-center text-center group w-[19%] max-w-[130px]"
               >
-                <div className="w-20 h-20 bg-[#19284c] rounded-full flex items-center justify-center mb-6 border-4 border-[#A5ADB8] shadow-xl group-hover:scale-110 group-hover:bg-[#616E33]/30 group-hover:border-[#D7B272]/30 transition-all duration-300">
+                <div className="w-full aspect-square bg-[#19284c] rounded-full flex flex-col items-center justify-center border-4 border-[#A5ADB8] shadow-md group-hover:scale-105 group-hover:bg-[#616E33]/30 group-hover:border-[#F7F9FA] transition-all duration-300 p-1 sm:p-2">
                   {renderIcon(step.iconName)}
-                </div>
-                
-                <div className="bg-[#F7F9FA]/80 backdrop-blur-sm px-4 py-3 rounded-2xl shadow-sm border border-[#D7B272]/20 w-48 md:w-full group-hover:shadow-[0_0_15px_rgba(215,178,114,0.15)] transition-all duration-300">
-                  <span className="text-sm font-bold tracking-widest uppercase text-[#616E33] mb-1 block">
+                  <span className="text-[7px] sm:text-[9px] md:text-xs font-bold tracking-widest uppercase text-[#D7B272] group-hover:text-[#F7F9FA] leading-none mb-0.5 md:mb-1 transition-colors duration-300">
                     {step.time}
                   </span>
-                  <h3 className="text-lg font-serif text-[#19284c] font-medium leading-tight">
+                  <h3 className="text-[7px] sm:text-[10px] md:text-sm font-serif text-[#F7F9FA] leading-tight px-0.5 line-clamp-2">
                     {step.title}
                   </h3>
                 </div>

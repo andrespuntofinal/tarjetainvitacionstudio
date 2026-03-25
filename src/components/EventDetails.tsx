@@ -21,7 +21,7 @@ export default function EventDetails() {
   return (
     <section className={`${APP_CONFIG.eventDetails.backgroundColor} py-12 md:py-20 px-4 md:px-6`}>
       <div className="max-w-5xl mx-auto">
-        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#D7B272] tracking-widest uppercase">Detalles del Evento</h2>
+        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#735309] tracking-widest uppercase">Detalles del Evento</h2>
         <div className="grid grid-cols-2 gap-4 md:gap-12">
           {details.map((item, index) => (
             <motion.div

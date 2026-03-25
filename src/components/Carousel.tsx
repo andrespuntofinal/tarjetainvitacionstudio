@@ -22,7 +22,7 @@ export default function Carousel() {
 
   return (
     <section className={`${APP_CONFIG.carousel.backgroundColor} py-12 px-6 flex flex-col justify-center items-center`}>
-      <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#D7B272] tracking-widest uppercase">
+      <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#735309] tracking-widest uppercase">
         {APP_CONFIG.carousel.carouselMsg}
       </h2>
       <div className="w-full max-w-4xl mx-auto relative group">

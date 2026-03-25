@@ -43,7 +43,7 @@ export default function Countdown() {
   return (
     <section className={`${APP_CONFIG.countdown.backgroundColor} py-12 px-2 md:px-6 flex flex-col justify-center`}>
       <div className="w-full max-w-3xl mx-auto text-center">
-        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#D7B272] tracking-widest uppercase">Tan sólo fantan</h2>
+        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#735309] tracking-widest uppercase">Tan sólo faltan</h2>
         <div className="flex flex-row justify-center items-center gap-2 md:gap-8">
           {items.map((item, index) => (
             <motion.div

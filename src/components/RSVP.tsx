@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, X } from "lucide-react";
 import { APP_CONFIG } from "../constants";
 
 export default function RSVP() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ name: "", message: "", attendance: "yes" });
+  const [formData, setFormData] = useState({ message: "", attendance: "yes" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export default function RSVP() {
     if (scriptUrl) {
       try {
         const data = new FormData();
-        data.append("Nombre", formData.name);
+        data.append("Nombre", APP_CONFIG.guestName);
         data.append("Mensaje", formData.message);
         data.append("Número invitados", String(APP_CONFIG.numberGuests));
         data.append("Asistencia", formData.attendance);
@@ -38,6 +38,12 @@ export default function RSVP() {
 
     setIsSubmitting(false);
     setIsSubmitted(true);
+  };
+
+  const handleClose = () => {
+    setIsSubmitted(false);
+    setIsFormVisible(false);
+    setFormData({ message: "", attendance: "yes" });
   };
 
   return (
@@ -68,7 +74,7 @@ export default function RSVP() {
                   className="space-y-6 text-left"
                 >
                   <div>
-                    <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">Confirmar asistencia</h2>
+                    <h2 className="font-serif text-3xl text-center mb-12 text-[#735309]">Confirma tu asistencia</h2>
                     <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-4">
                       ¿Asistirás al evento?
                     </label>
@@ -100,19 +106,6 @@ export default function RSVP() {
 
                   <div>
                     <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-2">
-                      Nombre Completo
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#A5ADB8] bg-[#F7F9FA]/10 text-[#27272B] focus:ring-2 focus:ring-[#D7B272] focus:border-transparent outline-none transition-all placeholder:text-[#A5ADB8]/50"
-                      placeholder="Tu nombre"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-2">
                       Mensaje para los novios
                     </label>
                     <textarea
@@ -125,7 +118,7 @@ export default function RSVP() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#19284c] text-[#E8E2D9] py-4 rounded-xl font-bold hover:bg-[#616E33]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
+                    className="w-full bg-[#19284c] text-[#E8E2D9] py-4 rounded-xl font-bold hover:bg-[#A5ADB8]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
                   >
                     {isSubmitting ? (
                       <span className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -141,14 +134,20 @@ export default function RSVP() {
               key="success"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-stone-50 p-10 rounded-3xl"
+              className="bg-stone-50 p-10 rounded-3xl relative"
             >
+              <button 
+                onClick={handleClose}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
               <CheckCircle2 className="w-16 h-16 text-[#616E33] mx-auto mb-6" />
               <h3 className="font-serif text-2xl mb-4 text-[#19284c]">¡Gracias por confirmar!</h3>
               <p className="text-[#19284c]/80 leading-relaxed">
                 {formData.attendance === "yes" 
-                  ? APP_CONFIG.rsvp.successMessage 
-                  : "Lamentamos que no puedas acompañarnos, pero agradecemos mucho que nos hayas avisado."}
+                  ? `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.successMessage}`
+                  : `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.rejectedMessage}`}
               </p>
             </motion.div>
           )}

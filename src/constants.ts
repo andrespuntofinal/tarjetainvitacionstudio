@@ -30,9 +30,14 @@ export interface AppConfig {
     textColor: string;
   };
   message: {
-    text: string;
+    text1: string;
+    text2: string;
+    groomParents: string;
+    brideParents: string;
     font: string;
-    color: string;
+    colorText1: string;
+    colorText2: string;
+    colorParents: string;
     background: string;
   };
   countdown: {
@@ -70,6 +75,8 @@ export interface AppConfig {
       place: string;
       time: string;
     };
+    ceremonyMaps: string;
+    celebrationMaps: string;
     backgroundColor: string;
     textColor: string;
   };
@@ -93,9 +100,14 @@ export interface AppConfig {
     timeStep4: string;
     timeStep5: string;
   };
+  presents: {
+    presentTitle: string;
+    presentMessage: string;
+  };
   rsvp: {
     buttonText: string;
     successMessage: string;
+    rejectedMessage: string;
     backgroundColor: string;
     buttonColor: string;
   };
@@ -131,8 +143,8 @@ export const APP_CONFIG: AppConfig = {
     couplePhoto: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773852607/preboda4_j66mlm.jpg",
     textureUrl: "https://us.123rf.com/450wm/tomo00/tomo001502/tomo00150200192/36801568-papel-tapiz-de-fondo-de-material-marca-de-coraz%C3%B3n-modelo-del-coraz%C3%B3n-amor-d%C3%ADa-de-san-valent%C3%ADn-s.jpg?ver=6",
     envelopeMsg: "Queremos invitarte a ser parte de un momento inolvidable",
-    envelopeMsgColor: "#D7B272",
-    envelopeFont: "var(--font-romantic)",
+    envelopeMsgColor: "#F7F9FA",
+    envelopeFont: "'Cormorant Garamond', serif",
     sealImage: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773802450/sello-removebg-preview_vaqap3.png",
   },
   banner: {
@@ -144,20 +156,25 @@ export const APP_CONFIG: AppConfig = {
     textColor: "text-white",
   },
   message: {
-    text: "Dios nos ha unido para formar una familia maravillosa",
+    text1: "Cordón de tres hilos no se rompe fácilmente: Dios, tú y yo. Con amor y fe en nuestra unión, y con al bendición de nuestros padres:",
+    text2: "Queremos invitarte a acompañarnos en el día más importante de nuestras vidas.",
+    groomParents: "Albeiro Jaramillo & Marleny Torres",
+    brideParents: "Héctor León & Bertha Perilla",
     font: "'Cormorant Garamond', serif",
-    color: "text-[#19284c]",
-    background: "w-full h-full my-4 md:my-0  backdrop-blur-lg  relative overflow-hidden",
+    colorText1: "text-[#19284c]",
+    colorText2: "text-[#19284c]",
+    colorParents: "text-[#D7B272]",
+    background: "w-full my-4 md:my-12 md:rounded-3xl  border-3 border-[#A5ADB8]/30  backdrop-blur-lg  relative overflow-hidden",
   },
   countdown: {
-    backgroundColor: "w-full h-full md:rounded-3xl bg-[rgba(25, 40, 76, 0)] backdrop-blur-lg  relative overflow-hidden",
+    backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c]  border border-[#A5ADB8] backdrop-blur-lg  relative overflow-hidden",
     textColor: "text-[#F7F9FA]",
     labelColor: "text-[#A5ADB8]",
   },
   calendar: {
     dateText: "17 de Noviembre, 2026",
     dateImg: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1774403705/PREBODA_Andres_y_Johana-58_dgf0jl.jpg",
-    backgroundColor: "w-full md:w-[95%] max-w-2xl mx-auto my-4 md:my-35 md:rounded-3xl shadow-xl bg-[#19284c] border-4  border-[#A5ADB8] ",
+    backgroundColor: "w-full md:w-[95%] max-w-4xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] px-4 md:px-8 px-4 md:px-8  ",
     textColor: "text-[#19284c]",
   },
   carousel: {
@@ -170,7 +187,7 @@ export const APP_CONFIG: AppConfig = {
       "https://res.cloudinary.com/dtfr6ngda/image/upload/v1774403621/PREBODA_Andres_y_Johana-67_aqnyjo.jpg",
     ],
     autoPlayInterval: 3000,
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl ackdrop-blur-lg  relative overflow-hidden",
+    backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl  backdrop-blur-lg border-3 border-[#A5ADB8]/30  relative overflow-hidden",
   },
   dressCode: {
     text: "Mujer: Vestido elegante (no blanco) - Hombre: Traje elegante",
@@ -179,24 +196,26 @@ export const APP_CONFIG: AppConfig = {
     dressCodeIconWomen: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773940159/womenico_vnki8h.png",
     dressCodeIconMen: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773939750/menicon_m1huiv.png",
     iconColor: "text-[#D7B272]",
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl backdrop-blur-lg relative overflow-hidden",
+    backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl bg-[#19284c] border border-[#A5ADB8]/30 backdrop-blur-lg relative overflow-hidden",
   },
   eventDetails: {
     ceremony: {
-      place: "Iglesia Dios Salva",
+      place: "Iglesia Restauración y Poder",
       time: "5:00 PM",
     },
     celebration: {
-      place: "Salón de Eventos AmorReal",
+      place: "Finca Aguas Claras Girardota",
       time: "7:00 PM",
     },
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl  backdrop-blur-lg relative overflow-hidden",
+    ceremonyMaps: "https://maps.app.goo.gl/Ky1GMM5PuLfsGpcq9",
+    celebrationMaps: "https://maps.app.goo.gl/Epp7d7ge5K2MuUfw8",
+    backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl bg-[#19284c] border border-[#A5ADB8] backdrop-blur-lg relative overflow-hidden",
     textColor: "text-[#F7F9FA]",
   },
   timeline: {
     font: "'Cormorant Garamond', serif",
     textColor: "text-[#19284c]",
-    backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl backdrop-blur-lg relative overflow-hidden",
+    backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl border-3 border-[#A5ADB8]/30 backdrop-blur-lg relative overflow-hidden",
     iconStep1: "Church",
     iconStep2: "Camera",
     iconStep3: "Wine",
@@ -213,9 +232,14 @@ export const APP_CONFIG: AppConfig = {
     timeStep4: "7:00 pm",
     timeStep5: "8:00 pm",
   },
+  presents: {
+    presentTitle: "Lluvia de sobres",
+    presentMessage: "Tu presencia es nuestro mejor regalo, pero si deseas acompañarnos con un detalle, agradecemos tu lluvia de sobres",
+  },
   rsvp: {
-    buttonText: "Confirmar asistencia",
-    successMessage: "Es un honor contar con tu asistencia a nuestra boda, gracias por confirmar",
+    buttonText: "Confirmar tu asistencia",
+    successMessage: "es un honor contar con tu asistencia a nuestra boda, gracias por confirmar",
+    rejectedMessage: "lamentamos no poder contar con su presencia, pero agradecemos mucho que nos hayas avisado.",
     backgroundColor: "w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl relative overflow-hidden",
     buttonColor: "bg-[#19284c]",
   },

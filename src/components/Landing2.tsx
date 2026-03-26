@@ -8,6 +8,7 @@ import Carousel from "./Carousel";
 import DressCode from "./DressCode";
 import EventDetails from "./EventDetails";
 import Timeline from "./Timeline";
+import Presents from "./Presents";
 import RSVP from "./RSVP";
 import FooterControls from "./FooterControls";
 import { APP_CONFIG } from "../constants";
@@ -42,10 +43,16 @@ export default function Landing2({ onClose }: Landing2Props) {
         <Message />
         <Countdown />
         <Calendar />
+        <div className="w-full  py-12 md:py-20 my-4 md:my-12">
+          <div className="max-w-[130rem] mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-22 px-4 md:px-8">
         <EventDetails />
         <DressCode />
-        <Carousel />
+          </div>
+        </div>
         <Timeline />
+        <Presents />
+        <Carousel />
+        
         <RSVP />
       </div>
       

@@ -40,7 +40,7 @@ export default function Timeline() {
                 transition={{ delay: index * 0.1 }}
                 className="flex flex-col items-center text-center group w-[19%] max-w-[130px]"
               >
-                <div className="w-full aspect-square bg-[#19284c] rounded-full flex flex-col items-center justify-center border-4 border-[#A5ADB8] shadow-md group-hover:scale-105 group-hover:bg-[#616E33]/30 group-hover:border-[#F7F9FA] transition-all duration-300 p-1 sm:p-2">
+                <div className="w-full aspect-square bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c] rounded-full flex flex-col items-center justify-center border-4 border-[#A5ADB8] shadow-md group-hover:scale-105 group-hover:bg-[#616E33]/30 group-hover:border-[#F7F9FA] transition-all duration-300 p-1 sm:p-2">
                   {renderIcon(step.iconName)}
                   <span className="text-[7px] sm:text-[9px] md:text-xs font-bold tracking-widest uppercase text-[#D7B272] group-hover:text-[#F7F9FA] leading-none mb-0.5 md:mb-1 transition-colors duration-300">
                     {step.time}

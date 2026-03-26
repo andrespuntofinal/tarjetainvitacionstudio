@@ -12,10 +12,35 @@ export default function Message() {
         className="max-w-2xl mx-auto"
       >
         <p 
-          className={`${APP_CONFIG.message.color} text-2xl md:text-3xl italic leading-relaxed`}
+          className={`${APP_CONFIG.message.colorText1} text-2xl md:text-3xl italic leading-relaxed`}
           style={{ fontFamily: APP_CONFIG.message.font }}
         >
-          "{APP_CONFIG.message.text}"
+          {APP_CONFIG.message.text1}
+        </p>
+
+        <br />
+
+        <p 
+          className={`${APP_CONFIG.message.colorParents} text-2xl md:text-3xl italic leading-relaxed`}
+          style={{ fontFamily: APP_CONFIG.message.font }}
+        >
+          {APP_CONFIG.message.groomParents}
+        </p>
+
+         <p 
+          className={`${APP_CONFIG.message.colorParents} text-2xl md:text-3xl italic leading-relaxed`}
+          style={{ fontFamily: APP_CONFIG.message.font }}
+        >
+          {APP_CONFIG.message.brideParents}
+        </p>
+
+         <br />
+
+        <p 
+          className={`${APP_CONFIG.message.colorText1} text-2xl md:text-3xl italic leading-relaxed`}
+          style={{ fontFamily: APP_CONFIG.message.font }}
+        >
+          {APP_CONFIG.message.text2}
         </p>
       </motion.div>
     </section>

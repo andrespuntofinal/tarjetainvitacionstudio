@@ -38,7 +38,7 @@ export default function EventDetails() {
               <div className="w-10 h-10 md:w-20 md:h-20 bg-[#E8E2D9] rounded-full flex items-center justify-center mb-3 md:mb-6 border-2 md:border-4 border-[#D7B272] group-hover:scale-110 group-hover:bg-[#A5ADB8] transition-all duration-300">
                 <item.icon className="w-5 h-5 md:w-8 md:h-8 text-[#735309]" />
               </div>
-              <h3 className="font-serif text-sm md:text-xl mb-2 md:mb-6 text-[#F7F9FA]">{item.title}</h3>
+              <h3 className="font-serif text-sm md:text-xl mb-2 md:mb-6 text-[#D7B272]">{item.title}</h3>
               
               <div className="space-y-2 md:space-y-4 w-full mb-3 md:mb-6">
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-1 md:gap-3 text-[#E8E2D9] font-medium text-[9px] sm:text-[10px] md:text-sm leading-tight">

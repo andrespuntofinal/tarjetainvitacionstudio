@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Users } from "lucide-react";
 import { APP_CONFIG } from "../constants";
 
-export default function Presents() {
+export default function ChildRestriction() {
   return (
     <section className="w-full h-full flex flex-col">
       <div className="w-full mx-auto flex-1 flex flex-col">
         <h2 className="font-serif text-xl md:text-2xl text-center mb-6 md:mb-10 text-[#735309] tracking-widest uppercase">
-          {APP_CONFIG.presents.presentTitle}
+          {APP_CONFIG.childRestriction.childrestrictionTitle}
         </h2>
         
         <motion.div
@@ -17,11 +17,11 @@ export default function Presents() {
           className="flex-1 py-8 px-4 md:p-10 rounded-2xl md:rounded-3xl shadow-xl flex flex-col items-center justify-center text-center bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c] border border-[#A5ADB8]/30 relative overflow-hidden"
         >
           <div className="w-16 h-16 md:w-24 md:h-24 bg-[#E8E2D9] rounded-full flex items-center justify-center mb-6 md:mb-8 border-2 md:border-4 border-[#D7B272] hover:scale-110 hover:bg-[#A5ADB8] transition-all duration-300">
-            <Mail className="w-8 h-8 md:w-12 md:h-12 text-[#735309]" />
+            <Users className="w-8 h-8 md:w-12 md:h-12 text-[#735309]" />
           </div>
           
           <p className="text-[#F7F9FA] font-medium text-sm md:text-lg leading-relaxed max-w-2xl">
-            {APP_CONFIG.presents.presentMessage}
+            {APP_CONFIG.childRestriction.childrestrictionMessage}
           </p>
         </motion.div>
       </div>

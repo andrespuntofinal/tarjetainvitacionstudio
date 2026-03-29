@@ -216,7 +216,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
             className="absolute z-40 flex flex-col items-center justify-center cursor-pointer group"
             initial={{ top: "50%", y: "-10%" }}
             animate={{ 
-              top: step === "opening" ? "75%" : "50%",
+              top: step === "opening" ? "60%" : "50%",
               y: step === "opening" ? "0%" : "-10%",
               scale: step === "opening" ? 1.1 : 1
             }}

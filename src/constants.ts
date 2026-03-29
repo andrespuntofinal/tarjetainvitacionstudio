@@ -104,6 +104,10 @@ export interface AppConfig {
     presentTitle: string;
     presentMessage: string;
   };
+    childRestriction: {
+    childrestrictionTitle: string;
+    childrestrictionMessage: string;
+  };
   rsvp: {
     buttonText: string;
     successMessage: string;
@@ -235,6 +239,10 @@ export const APP_CONFIG: AppConfig = {
   presents: {
     presentTitle: "Lluvia de sobres",
     presentMessage: "Tu presencia es nuestro mejor regalo, pero si deseas acompañarnos con un detalle, agradecemos tu lluvia de sobres",
+  },
+   childRestriction: {
+    childrestrictionTitle: "Recomendaciones",
+    childrestrictionMessage: "Para que todos puedan disfrutar plenamente de la celebración, este será un evento solo para adultos. Agradecemos tu comprensión.",
   },
   rsvp: {
     buttonText: "Confirmar tu asistencia",

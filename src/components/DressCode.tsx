@@ -51,7 +51,7 @@ export default function DressCode() {
               
               <div className="w-6 md:w-16 h-px bg-[#616E33]/50 mb-2 md:mb-6"></div>
 
-              <p className="text-[#E8E2D9] font-light  text-xs sm:text-sm md:text-base leading-relaxed">
+              <p className="text-[#E8E2D9]  font-light text-xs sm:text-sm md:text-base leading-relaxed">
                 {item.text}
               </p>
             </div>

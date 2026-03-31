@@ -22,11 +22,11 @@ export default function Carousel() {
 
   return (
     <section className={`${APP_CONFIG.carousel.backgroundColor} py-12 px-0 md:px-6 flex flex-col justify-center items-center`}>
-      <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#735309] tracking-widest uppercase">
+      <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#735309] tracking-widest uppercase px-4 md:px-0">
         {APP_CONFIG.carousel.carouselMsg}
       </h2>
       <div className="w-full max-w-4xl mx-auto relative group">
-        <div className="aspect-video md:aspect-[21/9] overflow-hidden rounded-none md:rounded-2xl shadow-[0_0_15px_rgba(215,178,114,0.15)] relative border-y md:border border-x-0 md:border-x border-[#616E33]/50 bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c]">
+        <div className="aspect-video md:aspect-[21/9] overflow-hidden rounded-none md:rounded-2xl shadow-[0_0_15px_rgba(215,178,114,0.15)] relative border-y md:border border-x-0 md:border-x border-[#616E33]/50 bg-[#19284c]">
           <AnimatePresence mode="wait">
             <motion.img
               key={currentIndex}

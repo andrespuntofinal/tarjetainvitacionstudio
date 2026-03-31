@@ -167,7 +167,7 @@ export const APP_CONFIG: AppConfig = {
     font: "'Cormorant Garamond', serif",
     colorText1: "text-[#19284c]",
     colorText2: "text-[#19284c]",
-    colorParents: "text-[#D7B272]",
+    colorParents: "text-[#735309]",
     background: "w-full my-4 md:my-12 md:rounded-3xl  border-3 border-[#A5ADB8]/30  backdrop-blur-lg  relative overflow-hidden",
   },
   countdown: {

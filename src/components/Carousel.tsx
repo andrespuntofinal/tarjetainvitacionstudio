@@ -26,7 +26,7 @@ export default function Carousel() {
         {APP_CONFIG.carousel.carouselMsg}
       </h2>
       <div className="w-full max-w-4xl mx-auto relative group">
-        <div className="aspect-video md:aspect-[21/9] overflow-hidden rounded-2xl shadow-[0_0_15px_rgba(215,178,114,0.15)] relative border border-[#616E33]/50 bg-[#19284c]">
+        <div className="aspect-video md:aspect-[21/9] overflow-hidden rounded-2xl shadow-[0_0_15px_rgba(215,178,114,0.15)] relative border border-[#616E33]/50 bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c]">
           <AnimatePresence mode="wait">
             <motion.img
               key={currentIndex}

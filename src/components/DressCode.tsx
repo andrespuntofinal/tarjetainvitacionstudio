@@ -18,14 +18,14 @@ export default function DressCode() {
   return (
     <section className="w-full h-full flex flex-col">
       <div className="w-full mx-auto flex-1 flex flex-col">
-        <h2 className="font-serif text-xl md:text-2xl text-center mb-6 md:mb-10 tracking-widest uppercase text-[#735309]">
+        <h2 className="font-serif text-xl md:text-2xl text-center mb-6 md:mb-10 tracking-widest uppercase text-[#735309] px-4 md:px-0">
           Código de Vestimenta
         </h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex-1 py-6 px-1 md:p-10 rounded-2xl md:rounded-3xl shadow-xl flex flex-row items-start justify-center  bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c] border border-[#A5ADB8]/30 relative overflow-hidden divide-x divide-[#D7B272]/30 gap-0"
+          className="flex-1 py-6 px-1 md:p-10 rounded-none md:rounded-3xl shadow-xl flex flex-row items-start justify-center  bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c] border-y md:border border-x-0 md:border-x border-[#A5ADB8]/30 relative overflow-hidden divide-x divide-[#D7B272]/30 gap-0"
         >
           {details.map((item, index) => (
             <div
@@ -47,11 +47,11 @@ export default function DressCode() {
                   }}
                 />
               </div>
-              <h3 className="font-serif text-sm md:text-xl mb-2 md:mb-4 text-[#D7B272] tracking-wide">{item.title}</h3>
+              <h3 className="font-serif text-lg md:text-3xl mb-2 md:mb-4 text-[#D7B272] leading-relaxed">{item.title}</h3>
               
               <div className="w-6 md:w-16 h-px bg-[#616E33]/50 mb-2 md:mb-6"></div>
 
-              <p className="text-[#E8E2D9] font-medium text-[9px] sm:text-[10px] md:text-sm leading-tight md:leading-relaxed">
+              <p className="text-[#E8E2D9] font-light  text-xs sm:text-sm md:text-base leading-relaxed">
                 {item.text}
               </p>
             </div>

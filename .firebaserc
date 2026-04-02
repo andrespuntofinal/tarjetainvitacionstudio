@@ -1,15 +1,5 @@
 {
   "projects": {
     "default": "ideacion360"
-  },
-  "targets": {
-    "ideacion360": {
-      "hosting": {
-        "invitaciones": [
-          "ideacion360-invitation"
-        ]
-      }
-    }
-  },
-  "etags": {}
+  }
 }

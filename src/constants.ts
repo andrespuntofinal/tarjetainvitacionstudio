@@ -168,7 +168,7 @@ export const APP_CONFIG: AppConfig = {
     colorText1: "text-[#19284c]",
     colorText2: "text-[#19284c]",
     colorParents: "text-[#735309]",
-    background: "w-full my-4 md:my-12 md:rounded-3xl  border-3 border-[#A5ADB8]/30  backdrop-blur-lg  relative overflow-hidden",
+    background: "w-full my-1 md:my-1 md:rounded-3xl  backdrop-blur-lg  relative overflow-hidden",
   },
   countdown: {
     backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c]  border border-[#A5ADB8] backdrop-blur-lg  relative overflow-hidden",
@@ -191,7 +191,7 @@ export const APP_CONFIG: AppConfig = {
       "https://res.cloudinary.com/dtfr6ngda/image/upload/v1774403621/PREBODA_Andres_y_Johana-67_aqnyjo.jpg",
     ],
     autoPlayInterval: 3000,
-    backgroundColor: "w-full my-4 md:my-12 md:rounded-3xl  backdrop-blur-lg border-3 border-[#A5ADB8]/30  relative overflow-hidden",
+    backgroundColor: "w-full my-0 md:my-12 md:rounded-3xl  backdrop-blur-lg relative overflow-hidden",
   },
   dressCode: {
     text: "Mujer: Vestido elegante (no blanco) - Hombre: Traje elegante",

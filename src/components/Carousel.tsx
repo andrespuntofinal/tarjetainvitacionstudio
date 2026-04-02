@@ -21,8 +21,8 @@ export default function Carousel() {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <section className={`${APP_CONFIG.carousel.backgroundColor} py-12 px-0 md:px-6 flex flex-col justify-center items-center`}>
-      <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-16 text-[#735309] tracking-widest uppercase">
+    <section className={`${APP_CONFIG.carousel.backgroundColor} py-6 px-0 md:px-6 flex flex-col justify-center items-center`}>
+      <h2 className="font-serif text-xl md:text-2xl text-center mb-6 md:mb-10 text-[#735309] tracking-widest uppercase">
         {APP_CONFIG.carousel.carouselMsg}
       </h2>
       <div className="w-full max-w-4xl mx-auto relative group">

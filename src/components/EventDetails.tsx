@@ -21,7 +21,7 @@ export default function EventDetails() {
   ];
 
   return (
-    <section className="w-full h-full flex flex-col">
+    <section className="w-full h-full flex flex-col py-0 -mt-6 md:mt-0">
       <div className="w-full mx-auto flex-1 flex flex-col">
         <h2 className="font-serif text-xl md:text-2xl text-center mb-6 md:mb-10 text-[#735309] tracking-widest uppercase px-4 md:px-0">Detalles del Evento</h2>
         <motion.div

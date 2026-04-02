@@ -1,7 +1,7 @@
 {
   "hosting": {
-    "target": "invitaciones",
     "public": "dist",
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,7 +9,7 @@
     ],
     "rewrites": [
       {
-        "source": "/invitation/**",
+        "source": "/invitation**",
         "destination": "/index.html"
       }
     ]

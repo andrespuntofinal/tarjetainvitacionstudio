@@ -44,13 +44,13 @@ export default function Landing2({ onClose }: Landing2Props) {
         <Message />
         <Countdown />
         <Calendar />
-        <div className="w-full  py-12 md:py-20 my-4 md:my-12">
+        <div className="w-full  py-12 md:py-2 my-4 md:my-12">
           <div className="max-w-[130rem] mx-auto  grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-22 px-0 md:px-8">
         <EventDetails />
         <DressCode />
           </div>
         </div>
-        <div className="w-full py-12 md:py-20 my-4 md:my-12">
+        <div className="w-full py-0 md:py-20 my-4 md:my-12">
           <div className="max-w-[130rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-22 px-0 md:px-8">
             <ChildRestriction />
             <Presents />

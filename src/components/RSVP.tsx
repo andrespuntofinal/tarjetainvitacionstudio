@@ -7,32 +7,36 @@ export default function RSVP() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ message: "", attendance: "yes" });
+  const [formData, setFormData] = useState({ message: "", attendance: "si" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);      
     
-    const scriptUrl = APP_CONFIG.googleAppsScriptUrl || (import.meta as any).env?.VITE_GOOGLE_APPS_SCRIPT_URL;
+    const webhookUrl = APP_CONFIG.webhookUrl;
     
-    if (scriptUrl) {
+    if (webhookUrl) {
       try {
-        const data = new FormData();
-        data.append("Nombre", APP_CONFIG.guestName);
-        data.append("Mensaje", formData.message);
-        data.append("Número invitados", String(APP_CONFIG.numberGuests));
-        data.append("Asistencia", formData.attendance);
+        const payload = {
+          nombre: APP_CONFIG.guestName,
+          mensaje: formData.message,
+          numeroInvitados: APP_CONFIG.numberGuests,
+          asistencia: formData.attendance,
+          fechaConfirmacion: new Date().toISOString()
+        };
 
-        await fetch(scriptUrl, {
+        await fetch(webhookUrl, {
           method: "POST",
-          body: data,
-          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         });
       } catch (error) {
-        console.error("Error al guardar en Google Sheets:", error);
+        console.error("Error al enviar datos al webhook:", error);
       }
     } else {
-      console.warn("VITE_GOOGLE_APPS_SCRIPT_URL no está definida. Simulando envío.");
+      console.warn("Webhook URL no está definida. Simulando envío.");
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
 
@@ -43,7 +47,7 @@ export default function RSVP() {
   const handleClose = () => {
     setIsSubmitted(false);
     setIsFormVisible(false);
-    setFormData({ message: "", attendance: "yes" });
+    setFormData({ message: "", attendance: "si" });
   };
 
   return (
@@ -74,16 +78,16 @@ export default function RSVP() {
                   className="space-y-6 text-left"
                 >
                   <div>
-                    <h2 className="font-serif text-3xl text-center mb-12 text-[#735309]">Confirma tu asistencia</h2>
+                    <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">Confirmar asistencia</h2>
                     <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-4">
                       ¿Asistirás al evento?
                     </label>
                     <div className="grid grid-cols-2 gap-4">
                       <button
                         type="button"
-                        onClick={() => setFormData({ ...formData, attendance: "yes" })}
+                        onClick={() => setFormData({ ...formData, attendance: "si" })}
                         className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
-                          formData.attendance === "yes"
+                          formData.attendance === "si"
                             ? "border-[#D7B272] bg-[#19284c] text-[#A5ADB8]"
                             : "border-[#A5ADB8]/50 text-[#A5ADB8] hover:border-[#D7B272]"
                         }`}
@@ -118,7 +122,7 @@ export default function RSVP() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#19284c] text-[#E8E2D9] py-4 rounded-xl font-bold hover:bg-[#A5ADB8]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
+                    className="w-full bg-[#19284c] text-[#E8E2D9] py-4 rounded-xl font-bold hover:bg-[#616E33]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
                   >
                     {isSubmitting ? (
                       <span className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -145,7 +149,7 @@ export default function RSVP() {
               <CheckCircle2 className="w-16 h-16 text-[#616E33] mx-auto mb-6" />
               <h3 className="font-serif text-2xl mb-4 text-[#19284c]">¡Gracias por confirmar!</h3>
               <p className="text-[#19284c]/80 leading-relaxed">
-                {formData.attendance === "yes" 
+                {formData.attendance === "si" 
                   ? `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.successMessage}`
                   : `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.rejectedMessage}`}
               </p>

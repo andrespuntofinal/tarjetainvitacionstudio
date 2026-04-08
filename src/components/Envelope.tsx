@@ -150,8 +150,16 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
           <div 
             className="absolute w-full h-full z-20 rounded-md overflow-hidden"
             style={{ 
-              backgroundColor: APP_CONFIG.envelope.envelopeColor,
-              backgroundImage: `url(${APP_CONFIG.envelope.textureUrl})`,
+              
+              backgroundImage: `
+      linear-gradient(
+        to bottom right,
+        ${APP_CONFIG.envelope.envelopeColor},
+        #5c678d,
+        ${APP_CONFIG.envelope.envelopeColor}
+      ),
+      url(${APP_CONFIG.envelope.textureUrl})
+    `,
               backgroundBlendMode: 'multiply',
               boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)'
             }}
@@ -177,8 +185,16 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
           <motion.div
             className="absolute top-0 left-0 w-full h-[65%] origin-top z-30"
             style={{ 
-              backgroundColor: APP_CONFIG.envelope.envelopeColor,
-              backgroundImage: `url(${APP_CONFIG.envelope.textureUrl})`,
+             
+              backgroundImage: `
+      linear-gradient(
+        to bottom right,
+        ${APP_CONFIG.envelope.envelopeColor},
+        ${APP_CONFIG.envelope.envelopeColorDeg},
+        ${APP_CONFIG.envelope.envelopeColor}
+      ),
+      url(${APP_CONFIG.envelope.textureUrl})
+    `,
               backgroundBlendMode: 'multiply',
               clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
               filter: 'drop-shadow(0 10px 8px rgba(0,0,0,0.3))'

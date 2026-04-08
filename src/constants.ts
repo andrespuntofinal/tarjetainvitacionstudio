@@ -13,6 +13,7 @@ export interface AppConfig {
   envelope: {
     sealColor: string;
     envelopeColor: string;
+    envelopeColorDeg: string;
     innerColor: string;
     couplePhoto: string;
     textureUrl?: string;
@@ -117,6 +118,7 @@ export interface AppConfig {
   };
   landing2Background: string;
   googleAppsScriptUrl: string;
+  webhookUrl: string;
   colors: {
     primary: string;
     secondary: string;
@@ -143,6 +145,7 @@ export const APP_CONFIG: AppConfig = {
   envelope: {
     sealColor: "#9b958d", // amber-700
     envelopeColor: "#19284c", // amber-100
+    envelopeColorDeg: "#5c678d",
     innerColor: "#ffffff",
     couplePhoto: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773852607/preboda4_j66mlm.jpg",
     textureUrl: "https://us.123rf.com/450wm/tomo00/tomo001502/tomo00150200192/36801568-papel-tapiz-de-fondo-de-material-marca-de-coraz%C3%B3n-modelo-del-coraz%C3%B3n-amor-d%C3%ADa-de-san-valent%C3%ADn-s.jpg?ver=6",
@@ -253,6 +256,7 @@ export const APP_CONFIG: AppConfig = {
   },
   landing2Background: "https://res.cloudinary.com/dtfr6ngda/image/upload/v1773861644/texturamain_eg3hpd.png",
   googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbzrYOi4H3XGg2VmAdTaMr7O_ySoQYD3dU2nL9EiUd3VTs_8xlr4hJFXKgSC_JbEQd83/exec", // Pega aquí la URL de tu Google Apps Script
+  webhookUrl:"http://localhost:5678/webhook-test/4626d0ef-daae-4826-a7c2-ed5316a446fe",
   colors: {
     primary: "#19284c",
     secondary: "#A5ADB8",
@@ -263,3 +267,21 @@ export const APP_CONFIG: AppConfig = {
     dark: "#27272B"
   }
 };
+
+// Update guestName and numberGuests from URL parameters if they exist
+if (typeof window !== "undefined") {
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestNameParam = urlParams.get("guestName");
+  const numberGuestsParam = urlParams.get("numberGuests");
+
+  if (guestNameParam) {
+    APP_CONFIG.guestName = guestNameParam;
+  }
+
+  if (numberGuestsParam) {
+    const parsedNumber = parseInt(numberGuestsParam, 10);
+    if (!isNaN(parsedNumber)) {
+      APP_CONFIG.numberGuests = parsedNumber;
+    }
+  }
+}

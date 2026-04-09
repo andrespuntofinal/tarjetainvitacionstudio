@@ -22,11 +22,14 @@ export default function Carousel() {
 
   return (
     <section className={`${APP_CONFIG.carousel.backgroundColor} py-6 px-0 md:px-6 flex flex-col justify-center items-center`}>
-      <h2 className="font-serif text-xl md:text-2xl text-center mb-6 md:mb-10 text-[#735309] tracking-widest uppercase">
+      <h2 className={`${APP_CONFIG.carousel.titleFont} text-xl md:text-2xl text-center mb-6 md:mb-10 ${APP_CONFIG.carousel.titleColor} tracking-widest uppercase`}>
+        
+        
+        
         {APP_CONFIG.carousel.carouselMsg}
       </h2>
       <div className="w-full max-w-4xl mx-auto relative group">
-        <div className="aspect-video md:aspect-[21/9] overflow-hidden rounded-none md:rounded-2xl shadow-[0_0_15px_rgba(215,178,114,0.15)] relative border-y md:border border-x-0 md:border-x border-[#616E33]/50 bg-gradient-to-br from-[#19284c] via-[#5c678d] to-[#19284c]">
+        <div className={`${APP_CONFIG.carousel.cardStyle}`}>
           <AnimatePresence mode="wait">
             <motion.img
               key={currentIndex}
@@ -34,7 +37,7 @@ export default function Carousel() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: APP_CONFIG.carousel.durationTransition }}
               className="w-full h-full object-cover cursor-zoom-in"
               onClick={() => setSelectedImage(images[currentIndex])}
               referrerPolicy="no-referrer"
@@ -45,29 +48,18 @@ export default function Carousel() {
         {/* Controls */}
         <button 
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#19284c]/80 text-[#D7B272] border border-[#D7B272]/50 p-2 rounded-full shadow-[0_0_10px_rgba(215,178,114,0.2)] opacity-0 group-hover:opacity-100 transition-all hover:bg-[#19284c] hover:scale-110"
+          className={`${APP_CONFIG.carousel.buttonPrevStyle}`}
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button 
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#19284c]/80 text-[#D7B272] border border-[#D7B272]/50 p-2 rounded-full shadow-[0_0_10px_rgba(215,178,114,0.2)] opacity-0 group-hover:opacity-100 transition-all hover:bg-[#19284c] hover:scale-110"
+          className={`${APP_CONFIG.carousel.buttonNextStyle}`}
         >
           <ChevronRight className="w-6 h-6" />
         </button>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentIndex(i)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                i === currentIndex ? "bg-[#D7B272] w-6 shadow-[0_0_5px_rgba(215,178,114,0.5)]" : "bg-[#A5ADB8]/50 hover:bg-[#A5ADB8]"
-              }`}
-            />
-          ))}
-        </div>
+      
       </div>
 
       {/* Lightbox */}
@@ -77,10 +69,11 @@ export default function Carousel() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-[#19284c]/95 flex items-center justify-center p-4 backdrop-blur-sm"
+            className={`${APP_CONFIG.carousel.backgroundImgZoomStyle}`}
             onClick={() => setSelectedImage(null)}
           >
-            <button className="absolute top-6 right-6 text-white">
+            <button className={`absolute top-6 right-6 ${APP_CONFIG.carousel.closeColor}`}>
+              
               <X className="w-8 h-8" />
             </button>
             <motion.img

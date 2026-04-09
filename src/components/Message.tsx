@@ -12,7 +12,7 @@ export default function Message() {
         className="max-w-2xl mx-auto"
       >
         <p 
-          className={`${APP_CONFIG.message.colorText1} text-2xl md:text-3xl italic leading-relaxed`}
+          className={`${APP_CONFIG.message.colorText1} ${APP_CONFIG.message.textSize}`}
           style={{ fontFamily: APP_CONFIG.message.font }}
         >
           {APP_CONFIG.message.text1}
@@ -21,14 +21,14 @@ export default function Message() {
         <br />
 
         <p 
-          className={`${APP_CONFIG.message.colorParents} text-2xl md:text-3xl italic leading-relaxed`}
+          className={`${APP_CONFIG.message.colorParents} ${APP_CONFIG.message.textSize}`}
           style={{ fontFamily: APP_CONFIG.message.font }}
         >
           {APP_CONFIG.message.groomParents}
         </p>
 
          <p 
-          className={`${APP_CONFIG.message.colorParents} text-2xl md:text-3xl italic leading-relaxed`}
+          className={`${APP_CONFIG.message.colorParents} ${APP_CONFIG.message.textSize}`}
           style={{ fontFamily: APP_CONFIG.message.font }}
         >
           {APP_CONFIG.message.brideParents}
@@ -37,7 +37,7 @@ export default function Message() {
          <br />
 
         <p 
-          className={`${APP_CONFIG.message.colorText1} text-2xl md:text-3xl italic leading-relaxed`}
+          className={`${APP_CONFIG.message.colorText1} ${APP_CONFIG.message.textSize} `}
           style={{ fontFamily: APP_CONFIG.message.font }}
         >
           {APP_CONFIG.message.text2}

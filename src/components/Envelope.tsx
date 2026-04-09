@@ -18,7 +18,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#b45309", "#fef3c7", "#ffffff"],
+        colors: APP_CONFIG.envelope.confettiColors,
       });
     } else if (step === "opening") {
       onOpenComplete();
@@ -37,7 +37,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
         }}
       />
       {/* Light overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-white/40 z-0 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 z-0 backdrop-blur-[2px]" style={{ backgroundColor: APP_CONFIG.envelope.overlayColor }} />
 
       {/* Message above envelope */}
       <motion.div 
@@ -64,7 +64,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
           <div 
             className="absolute w-[90%] h-[90%] rounded-md shadow-inner"
             style={{ 
-              backgroundColor: "#fdfbf7",
+              backgroundColor: APP_CONFIG.envelope.cardBackgroundColor,
               backgroundImage: `url(${APP_CONFIG.envelope.textureUrl})`,
               backgroundBlendMode: 'multiply',
               opacity: 0.9
@@ -76,7 +76,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
             
             {/* Card 1: Guest Info (Left) */}
             <motion.div
-              className="absolute w-48 h-64 bg-[#fdfbf7] shadow-xl rounded-lg p-1 z-10 flex flex-col items-center justify-center text-center border-2 border-[#d4af37]/30"
+              className="absolute w-48 h-64 shadow-xl rounded-lg p-1 z-10 flex flex-col items-center justify-center text-center border-2"
               initial={{ y: 20, x: 0, rotate: 0, opacity: 0, scale: 0.8 }}
               animate={
                 step === "opening"
@@ -92,31 +92,35 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
               }
               transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "easeInOut" }}
               style={{
-                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                backgroundColor: APP_CONFIG.envelope.cardBackgroundColor,
+                borderColor: `${APP_CONFIG.envelope.accentColor}4D`,
                 backgroundImage: `url(${APP_CONFIG.envelope.textureUrl})`,
                 backgroundBlendMode: 'multiply'
               }}
             >
-              <div className="w-full h-full border border-[#d4af37]/50 rounded-md p-4 flex flex-col items-center justify-center relative overflow-hidden">
+              <div 
+                className="w-full h-full border rounded-md p-4 flex flex-col items-center justify-center relative overflow-hidden"
+                style={{ borderColor: `${APP_CONFIG.envelope.accentColor}80` }}
+              >
                 {/* Decorative corners */}
-                <div className="absolute top-1 left-1 w-4 h-4 border-t border-l border-[#d4af37]"></div>
-                <div className="absolute top-1 right-1 w-4 h-4 border-t border-r border-[#d4af37]"></div>
-                <div className="absolute bottom-1 left-1 w-4 h-4 border-b border-l border-[#d4af37]"></div>
-                <div className="absolute bottom-1 right-1 w-4 h-4 border-b border-r border-[#d4af37]"></div>
+                <div className="absolute top-1 left-1 w-4 h-4 border-t border-l" style={{ borderColor: APP_CONFIG.envelope.accentColor }}></div>
+                <div className="absolute top-1 right-1 w-4 h-4 border-t border-r" style={{ borderColor: APP_CONFIG.envelope.accentColor }}></div>
+                <div className="absolute bottom-1 left-1 w-4 h-4 border-b border-l" style={{ borderColor: APP_CONFIG.envelope.accentColor }}></div>
+                <div className="absolute bottom-1 right-1 w-4 h-4 border-b border-r" style={{ borderColor: APP_CONFIG.envelope.accentColor }}></div>
                 
-                <h3 className="font-serif text-xs mb-2 tracking-widest text-stone-600 uppercase">Reservado con cariño para:</h3>
-                <p className="font-serif text-xl font-bold mb-4 text-[#d4af37] leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <h3 className="text-xs mb-2 tracking-widest uppercase" style={{ color: APP_CONFIG.envelope.textColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}>Reservado con cariño para:</h3>
+                <p className="text-xl font-bold mb-4 leading-tight" style={{ color: APP_CONFIG.envelope.accentColor, fontFamily: APP_CONFIG.envelope.titleFont }}>
                   {APP_CONFIG.guestName}
                 </p>
-                <div className="mt-2 pt-3 border-t border-[#d4af37]/30 w-full">
-                  <p className="font-serif text-sm font-bold text-stone-700">{APP_CONFIG.numberGuests} PERSONAS</p>
+                <div className="mt-2 pt-3 border-t w-full" style={{ borderColor: `${APP_CONFIG.envelope.accentColor}4D` }}>
+                  <p className="text-sm font-bold" style={{ color: APP_CONFIG.envelope.textDarkColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}>{APP_CONFIG.numberGuests} PERSONAS</p>
                 </div>
               </div>
             </motion.div>
 
             {/* Card 2: Photo (Right) */}
             <motion.div
-              className="absolute w-44 h-56 bg-white shadow-xl p-2 z-10"
+              className="absolute w-44 h-56 shadow-xl p-2 z-10"
               initial={{ y: 20, x: 0, rotate: 0, opacity: 0, scale: 0.8 }}
               animate={
                 step === "opening"
@@ -132,7 +136,8 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
               }
               transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "easeInOut" }}
               style={{
-                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                backgroundColor: APP_CONFIG.envelope.photoBackgroundColor,
+                
               }}
             >
               <img 
@@ -155,27 +160,33 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
       linear-gradient(
         to bottom right,
         ${APP_CONFIG.envelope.envelopeColor},
-        #5c678d,
+        ${APP_CONFIG.envelope.envelopeColorDeg},
         ${APP_CONFIG.envelope.envelopeColor}
       ),
       url(${APP_CONFIG.envelope.textureUrl})
     `,
               backgroundBlendMode: 'multiply',
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)'
+              
             }}
           >
             {/* Diagonal lines to simulate envelope folds */}
             <div 
               className="absolute inset-0 opacity-30"
               style={{
-                background: `linear-gradient(to top right, transparent 49.5%, rgba(0,0,0,0.5) 50%, transparent 50.5%), linear-gradient(to top left, transparent 49.5%, rgba(0,0,0,0.5) 50%, transparent 50.5%)`
+                background: `linear-gradient(
+                to top right,
+                ${APP_CONFIG.envelope.envelopeColorDeg},                                  
+                linear-gradient(to top left, 
+                ${APP_CONFIG.envelope.envelopeColorDeg}, `
               }}
             />
             {/* Bottom triangle shadow */}
             <div 
-              className="absolute bottom-0 left-0 right-0 h-1/2 opacity-20"
+              className="absolute bottom-0 left-0 right-0 h-1/2 opacity-40"
               style={{
-                background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                background: `linear-gradient(to top,
+                 ${APP_CONFIG.envelope.envelopeColor}, 50%, 
+                 transparent)`,
                 clipPath: 'polygon(0 100%, 50% 0, 100% 100%)'
               }}
             />
@@ -197,7 +208,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
     `,
               backgroundBlendMode: 'multiply',
               clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
-              filter: 'drop-shadow(0 10px 8px rgba(0,0,0,0.3))'
+              
             }}
             animate={{ 
               rotateX: step === "opening" ? -180 : 0,
@@ -240,7 +251,8 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
           >
             {step === "closed" && (
               <motion.span 
-                className="text-[#d4af37] font-serif text-sm mb-4 tracking-widest opacity-80 group-hover:opacity-100 transition-opacity"
+                className="text-sm mb-4 tracking-widest opacity-80 group-hover:opacity-100 transition-opacity"
+                style={{ color: APP_CONFIG.envelope.accentColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.8 }}
                 exit={{ opacity: 0 }}
@@ -250,7 +262,8 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
             )}
             
             <div 
-              className="w-30 h-30 flex items-center justify-center relative transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(215,178,114,0.8)]"
+              className="w-30 h-30 flex items-center justify-center relative transition-all duration-300 group-hover:scale-110"
+              style={{ filter: `drop-shadow(0 0 15px ${APP_CONFIG.envelope.accentColor}CC)` }}
             >
               {/* Seal Image */}
               <img 
@@ -260,16 +273,16 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
               />
               
               {/* Text over the seal */}
-              <div className="relative z-10 flex flex-col items-center justify-center text-white/90">
+              <div className="relative z-10 flex flex-col items-center justify-center" style={{ color: APP_CONFIG.envelope.sealTextColor }}>
                 {step === "closed" ? (
                   <>
                     <span className="text-xs opacity-90 mb-0.5">💍</span>
-                    <span className="font-serif text-2xl font-bold leading-none" style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>J&L</span>
+                    <span className="text-2xl font-bold leading-none" style={{ fontFamily: APP_CONFIG.envelope.titleFont}}>J&L</span>
                   </>
                 ) : (
                   <>
                     <span className="text-[10px] opacity-90 mb-0.5">💍</span>
-                    <span className="font-serif text-[10px] font-bold leading-tight text-center px-1" style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 4px rgba(0,0,0,0.5)" }}>
+                    <span className="text-[10px] font-bold leading-tight text-center px-1" style={{ fontFamily: APP_CONFIG.envelope.titleFont }}>
                       VER<br/>DETALLES
                     </span>
                   </>

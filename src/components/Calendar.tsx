@@ -23,8 +23,8 @@ export default function Calendar() {
 
   return (
     <section className="w-full md:w-[95%] max-w-7xl mx-auto my-2 md:my-12">
-      <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-12 text-[#735309] tracking-widest uppercase">
-        El gran día
+      <h2 className={`${APP_CONFIG.calendar.titleFontText} ${APP_CONFIG.calendar.titleSizeText} md:text-3xl text-center mb-8 md:mb-12 ${APP_CONFIG.calendar.titleColorText} tracking-widest uppercase`}>
+        {APP_CONFIG.calendar.titleMsgText}
       </h2>
       <div className={`${APP_CONFIG.calendar.backgroundColor} overflow-hidden`}>
         <div className="flex flex-row items-stretch p-4 sm:p-6 md:p-2 gap-4 sm:gap-6 md:gap-4">
@@ -36,7 +36,7 @@ export default function Calendar() {
           viewport={{ once: true }}
           className="w-3/5 md:w-1/2 relative flex-shrink-0"
         >
-          <div className="w-full h-full min-h-[180px] rounded-lg md:rounded-xl border border-[#D7B272] shadow-[0_0_20px_rgba(215,178,114,0.4)] overflow-hidden">
+          <div className="w-full h-full min-h-[180px] rounded-lg md:rounded-xl  overflow-hidden">
             <img 
               src={APP_CONFIG.calendar.dateImg} 
               alt="Save the date" 
@@ -53,14 +53,18 @@ export default function Calendar() {
           viewport={{ once: true }}
           className="w-3/5 md:w-2/3 flex flex-col justify-center py-2 md:py-4"
         >
-          <h2 className="font-serif text-sm sm:text-lg md:text-2xl text-[#27272B] tracking-widest uppercase mb-4 md:mb-8 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className={`${APP_CONFIG.calendar.monthFontText} text-sm sm:text-lg md:text-2xl ${APP_CONFIG.calendar.monthColorText} tracking-widest uppercase mb-4 md:mb-8 text-center`}>
+           
+           
             {monthNames[month]} {year}
           </h2>
           
           <div className="w-full max-w-sm mx-auto">
             <div className="grid grid-cols-7 gap-1 md:gap-2 text-center mb-2 md:mb-6">
               {daysOfWeek.map(day => (
-                <div key={day} className="text-[#735309] text-[10px] sm:text-xs md:text-sm font-serif tracking-wider">
+                <div key={day} className={`${APP_CONFIG.calendar.dayweekColorText} ${APP_CONFIG.calendar.dayweekSizeText} ${APP_CONFIG.calendar.dayweekFontText} tracking-wider sm:text-xs md:text-sm`}>
+                  
+                  
                   {day}
                 </div>
               ))}
@@ -74,9 +78,16 @@ export default function Calendar() {
                     {d ? (
                       <div className={`flex items-center justify-center rounded-full transition-all duration-300 ${
                         isWeddingDay 
-                          ? "w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-[#19284c] border border-[#D7B272] text-[#D7B272] font-bold shadow-[0_0_15px_2px_rgba(215,178,114,0.7)] scale-110 md:scale-125 text-xs sm:text-sm md:text-base" 
-                          : "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#19284c] hover:bg-[#D7B272]/20 text-[11px] sm:text-xs md:text-sm"
-                      }`}>
+                          ? "w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10  font-bold scale-110 md:scale-125 text-xs sm:text-sm md:text-base" 
+                          : "w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8  text-[11px] sm:text-xs md:text-sm"
+                      
+                      }`}
+                       style={
+                      !isWeddingDay 
+          ? { color: APP_CONFIG.calendar.dayColorText1} 
+          : { color: APP_CONFIG.calendar.dayColorText2, backgroundColor: APP_CONFIG.calendar.daySelectedColor } 
+      }
+                      >
                         {d}
                       </div>
                     ) : (

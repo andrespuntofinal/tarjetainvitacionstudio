@@ -61,12 +61,11 @@ export default function RSVP() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h2 className="font-serif text-3xl text-center mb-0 text-[#19284c]"></h2>
-              
+             
               {!isFormVisible ? (
                 <button
                   onClick={() => setIsFormVisible(true)}
-                  className={`${APP_CONFIG.rsvp.buttonColor} text-white px-10 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform shadow-xl`}
+                  className={`${APP_CONFIG.rsvp.buttonColor} ${APP_CONFIG.rsvp.buttonTextColor} px-10 py-4 rounded-full text-lg  ${APP_CONFIG.rsvp.buttonTextFont} hover:scale-105 transition-transform shadow-xl`}
                 >
                   {APP_CONFIG.rsvp.buttonText}
                 </button>
@@ -78,9 +77,11 @@ export default function RSVP() {
                   className="space-y-6 text-left"
                 >
                   <div>
-                    <h2 className="font-serif text-3xl text-center mb-12 text-[#D7B272]">Confirmar asistencia</h2>
-                    <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-4">
-                      ¿Asistirás al evento?
+                    <h2 className={`${APP_CONFIG.rsvp.title2TextFont} text-3xl text-center mb-12 ${APP_CONFIG.rsvp.title2TextColor}`}> {APP_CONFIG.rsvp.title2TextMsg} </h2>
+                    
+                    <label className= {`block text-sm ${APP_CONFIG.rsvp.title3TextFont} ${APP_CONFIG.rsvp.title3TextColor} uppercase tracking-widest mb-4 `}>
+                     
+                      {APP_CONFIG.rsvp.title3TextMsg}
                     </label>
                     <div className="grid grid-cols-2 gap-4">
                       <button
@@ -88,46 +89,46 @@ export default function RSVP() {
                         onClick={() => setFormData({ ...formData, attendance: "si" })}
                         className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
                           formData.attendance === "si"
-                            ? "border-[#D7B272] bg-[#19284c] text-[#A5ADB8]"
-                            : "border-[#A5ADB8]/50 text-[#A5ADB8] hover:border-[#D7B272]"
+                            ? APP_CONFIG.rsvp.buttonYes1Style
+                            : APP_CONFIG.rsvp.buttonYes2Style
                         }`}
                       >
-                        Sí asistiré
+                         {APP_CONFIG.rsvp.buttonYesMsg}
                       </button>
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, attendance: "no" })}
                         className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
                           formData.attendance === "no"
-                            ? "border-[#D7B272] bg-[#19284c] text-[#A5ADB8]"
-                            : "border-[#A5ADB8]/50 text-[#A5ADB8] hover:border-[#D7B272]"
+                            ? APP_CONFIG.rsvp.buttonNot1Style
+                            : APP_CONFIG.rsvp.buttonNot2Style
                         }`}
                       >
-                        No podré asistir
+                         {APP_CONFIG.rsvp.buttonNotMsg}
                       </button>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[#A5ADB8] uppercase tracking-widest mb-2">
-                      Mensaje para los novios
+                    <label className= {`block text-sm ${APP_CONFIG.rsvp.msgTextFont} ${APP_CONFIG.rsvp.msgTextColor} uppercase tracking-widest mb-2`}>
+                     {APP_CONFIG.rsvp.msgTextMsg}
                     </label>
                     <textarea
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-[#A5ADB8] bg-[#F7F9FA]/10 text-[#27272B] focus:ring-2 focus:ring-[#D7B272] focus:border-transparent outline-none transition-all h-32 resize-none placeholder:text-[#A5ADB8]/50"
-                      placeholder="Escribe algo lindo..."
+                      className={`${APP_CONFIG.rsvp.textareaStyle}`}
+                      
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#19284c] text-[#E8E2D9] py-4 rounded-xl font-bold hover:bg-[#616E33]/90 transition-colors shadow-lg disabled:opacity-70 flex justify-center items-center"
+                    className={`${APP_CONFIG.rsvp.buttonSendStyle}`}
                   >
                     {isSubmitting ? (
                       <span className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                     ) : (
-                      "Confirmar Asistencia"
+                      APP_CONFIG.rsvp.buttonSendMsg
                     )}
                   </button>
                 </motion.form>
@@ -146,9 +147,12 @@ export default function RSVP() {
               >
                 <X className="w-6 h-6" />
               </button>
-              <CheckCircle2 className="w-16 h-16 text-[#616E33] mx-auto mb-6" />
-              <h3 className="font-serif text-2xl mb-4 text-[#19284c]">¡Gracias por confirmar!</h3>
-              <p className="text-[#19284c]/80 leading-relaxed">
+              <CheckCircle2 className={`w-16 h-16 ${APP_CONFIG.rsvp.confirmationCircleColor} mx-auto mb-6 `} />
+              
+              <h3 className= {`${APP_CONFIG.rsvp.confirmationTitleTextFont} text-2xl mb-4 ${APP_CONFIG.rsvp.confirmationTitleTextColor}`}>{APP_CONFIG.rsvp.confirmationTitleTextMsg}</h3>
+             
+              <p className={`${APP_CONFIG.rsvp.confirmationTextColor} ${APP_CONFIG.rsvp.confirmationTextFont} leading-relaxed`}>
+              
                 {formData.attendance === "si" 
                   ? `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.successMessage}`
                   : `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.rejectedMessage}`}

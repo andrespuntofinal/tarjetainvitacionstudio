@@ -26,7 +26,7 @@ export default function Banner() {
           muted 
           playsInline
         />
-        <div className="absolute inset-0 bg-[#19284c]/40 mix-blend-multiply" />
+        <div className="absolute inset-0  mix-blend-multiply" />
       </motion.div>
       
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
@@ -34,8 +34,9 @@ export default function Banner() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className={`${APP_CONFIG.banner.titleSize} text-[#F7F9FA] font-serif tracking-widest drop-shadow-lg`}
-          style={{ fontFamily: APP_CONFIG.banner.titleFont }}
+          className={`${APP_CONFIG.banner.titleSize} tracking-widest drop-shadow-lg`}
+          style={{ color: APP_CONFIG.banner.textColor, fontFamily: APP_CONFIG.banner.titleFont }}
+          
         >
           {APP_CONFIG.coupleNames}
         </motion.h1>
@@ -43,15 +44,16 @@ export default function Banner() {
           initial={{ width: 0 }}
           animate={{ width: "100px" }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="h-px bg-[#D7B272] my-6"
+          className={` h-px my-6 ${APP_CONFIG.banner.lineColor}`}
         />
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="text-[#E8E2D9] font-accent text-3xl italic drop-shadow-md"
+          className={`${APP_CONFIG.banner.subtitleSize}`}
+          style={{ color: APP_CONFIG.banner.textColor, fontFamily: APP_CONFIG.banner.subtitleFont }}
         >
-          Nuestra Boda
+          {APP_CONFIG.banner.subtextMsg}
         </motion.p>
       </div>
     </section>

@@ -23,8 +23,10 @@ export default function EventDetails() {
   return (
     <section className="w-full h-full flex flex-col py-0 -mt-6 md:mt-0">
       <div className="w-full mx-auto flex-1 flex flex-col">
-        <h2 className= {`${APP_CONFIG.eventDetails.detailsFont} text-xl md:text-2xl text-center mb-6 md:mb-10 ${APP_CONFIG.eventDetails.detailsColor} tracking-widest uppercase px-4 md:px-0`}>  {APP_CONFIG.eventDetails.detailsTitle} </h2>
-
+       
+        <h2 className="text-xl md:text-2xl text-center mb-6 md:mb-10 tracking-widest uppercase"
+        style={{ color: APP_CONFIG.eventDetails.detailsColor, fontFamily: APP_CONFIG.eventDetails.detailsFont }}>
+        {APP_CONFIG.eventDetails.detailsTitle} </h2>
        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,20 +40,26 @@ export default function EventDetails() {
               className="flex-1 flex flex-col items-center text-center px-1 md:px-8 group w-full"
             >
               <div className={`${APP_CONFIG.eventDetails.detailsIcons}`}>
-                <item.icon className={`w-5 h-5 md:w-8 md:h-8 ${APP_CONFIG.eventDetails.detailIconColor}`} />
+                <item.icon className="w-5 h-5 md:w-8 md:h-8"
+                style={{ color: APP_CONFIG.eventDetails.detailIconColor }}/>
                 
               </div>
-              <h3 className={`${APP_CONFIG.eventDetails.detailItemTitleFont} text-lg md:text-3xl mb-2 md:mb-6 ${APP_CONFIG.eventDetails.detailItemTitleColor} leading-relaxed`}>{item.title}</h3>
+              <h3 className="text-lg md:text-3xl mb-2 md:mb-6 leading-relaxed"
+               style={{ fontFamily: APP_CONFIG.eventDetails.detailItemTitleFont, color: APP_CONFIG.eventDetails.detailItemTitleColor }}>{item.title}</h3>
               
               <div className="space-y-2 md:space-y-4 w-full mb-3 md:mb-6">
-               <div className={`flex flex-col xl:flex-row items-center justify-center gap-1 md:gap-3 ${APP_CONFIG.eventDetails.detailItemText1Color} ${APP_CONFIG.eventDetails.detailItemText1Font} text-xs sm:text-sm md:text-base leading-relaxed`}>
+               <div className="flex flex-col xl:flex-row items-center justify-center gap-1 md:gap-3 text-xs sm:text-sm md:text-base leading-relaxed"
+               style={{ color: APP_CONFIG.eventDetails.detailItemText1Color, fontFamily: APP_CONFIG.eventDetails.detailItemText1Font }}>
                 
-                  <MapPin className={`w-3 h-3 md:w-5 md:h-5 ${APP_CONFIG.eventDetails.detailIcon2Color} shrink-0`} />
+                  <MapPin className="w-3 h-3 md:w-5 md:h-5 shrink-0" 
+                   style={{ color: APP_CONFIG.eventDetails.detailIcon2Color }}/>
                   
                   <span>{item.place}</span>
                 </div>
-                <div className={`flex flex-col xl:flex-row items-center justify-center gap-1 md:gap-3 ${APP_CONFIG.eventDetails.detailItemText1Color} ${APP_CONFIG.eventDetails.detailItemText1Font} text-xs sm:text-sm md:text-base leading-relaxed`}>
-                  <Clock className={`w-3 h-3 md:w-5 md:h-5 ${APP_CONFIG.eventDetails.detailIcon2Color} shrink-0`} />
+                <div className="flex flex-col xl:flex-row items-center justify-center gap-1 md:gap-3 text-xs sm:text-sm md:text-base leading-relaxed"
+                style={{ color: APP_CONFIG.eventDetails.detailItemText1Color, fontFamily: APP_CONFIG.eventDetails.detailItemText1Font }}>
+                  <Clock className="w-3 h-3 md:w-5 md:h-5 shrink-0" 
+                   style={{ color: APP_CONFIG.eventDetails.detailIcon2Color }}/>
                   <span>{item.time}</span>
                 </div>
               </div>

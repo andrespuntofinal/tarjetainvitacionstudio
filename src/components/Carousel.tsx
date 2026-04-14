@@ -22,7 +22,8 @@ export default function Carousel() {
 
   return (
     <section className={`${APP_CONFIG.carousel.backgroundColor} py-6 px-0 md:px-6 flex flex-col justify-center items-center`}>
-      <h2 className={`${APP_CONFIG.carousel.titleFont} text-xl md:text-2xl text-center mb-6 md:mb-10 ${APP_CONFIG.carousel.titleColor} tracking-widest uppercase`}>
+      <h2 className="text-xl md:text-2xl text-center mb-6 md:mb-10  tracking-widest uppercase"
+      style={{ color: APP_CONFIG.carousel.titleColor, fontFamily: APP_CONFIG.carousel.titleFont}}>
         
         
         
@@ -38,7 +39,7 @@ export default function Carousel() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: APP_CONFIG.carousel.durationTransition }}
-              className="w-full h-full object-cover cursor-zoom-in"
+              className="w-full h-full object-cover object-[center_30%] cursor-zoom-in"
               onClick={() => setSelectedImage(images[currentIndex])}
               referrerPolicy="no-referrer"
             />
@@ -72,7 +73,8 @@ export default function Carousel() {
             className={`${APP_CONFIG.carousel.backgroundImgZoomStyle}`}
             onClick={() => setSelectedImage(null)}
           >
-            <button className={`absolute top-6 right-6 ${APP_CONFIG.carousel.closeColor}`}>
+            <button className="absolute top-6 right-6"
+            style={{ color: APP_CONFIG.carousel.buttonCloseColor}}>
               
               <X className="w-8 h-8" />
             </button>

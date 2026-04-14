@@ -108,12 +108,12 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
                 <div className="absolute bottom-1 left-1 w-4 h-4 border-b border-l" style={{ borderColor: APP_CONFIG.envelope.accentColor }}></div>
                 <div className="absolute bottom-1 right-1 w-4 h-4 border-b border-r" style={{ borderColor: APP_CONFIG.envelope.accentColor }}></div>
                 
-                <h3 className="text-xs mb-2 tracking-widest uppercase" style={{ color: APP_CONFIG.envelope.textColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}>Reservado con cariño para:</h3>
+                <h3 className="text-xs mb-2 tracking-widest uppercase" style={{ color: APP_CONFIG.envelope.textColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}> {APP_CONFIG.envelope.cardMessageforguestsText} </h3>
                 <p className="text-xl font-bold mb-4 leading-tight" style={{ color: APP_CONFIG.envelope.accentColor, fontFamily: APP_CONFIG.envelope.titleFont }}>
-                  {APP_CONFIG.guestName}
+                  {APP_CONFIG.paramsGeneral.guestName}
                 </p>
                 <div className="mt-2 pt-3 border-t w-full" style={{ borderColor: `${APP_CONFIG.envelope.accentColor}4D` }}>
-                  <p className="text-sm font-bold" style={{ color: APP_CONFIG.envelope.textDarkColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}>{APP_CONFIG.numberGuests} PERSONAS</p>
+                  <p className="text-sm font-bold" style={{ color: APP_CONFIG.envelope.textDarkColor, fontFamily: APP_CONFIG.envelope.envelopeFont }}>{APP_CONFIG.paramsGeneral.numberGuests} PERSONAS</p>
                 </div>
               </div>
             </motion.div>
@@ -141,7 +141,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
               }}
             >
               <img 
-                src={APP_CONFIG.envelope.couplePhoto} 
+                src={APP_CONFIG.envelope.cardCouplePhoto} 
                 alt="Pareja" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -273,11 +273,11 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
               />
               
               {/* Text over the seal */}
-              <div className="relative z-10 flex flex-col items-center justify-center" style={{ color: APP_CONFIG.envelope.sealTextColor }}>
+              <div className="relative z-10 flex flex-col items-center justify-center" style={{ color: APP_CONFIG.envelope.initialsCoupleTextColor }}>
                 {step === "closed" ? (
                   <>
                     <span className="text-xs opacity-90 mb-0.5">💍</span>
-                    <span className="text-2xl font-bold leading-none" style={{ fontFamily: APP_CONFIG.envelope.titleFont}}>J&L</span>
+                    <span className="text-2xl font-bold leading-none" style={{ fontFamily: APP_CONFIG.envelope.titleFont}}> {APP_CONFIG.envelope.initialsCoupleText}  </span>
                   </>
                 ) : (
                   <>

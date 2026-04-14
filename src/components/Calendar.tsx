@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { APP_CONFIG } from "../constants";
 
 export default function Calendar() {
-  const weddingDate = new Date(APP_CONFIG.weddingDate);
+  const weddingDate = new Date(APP_CONFIG.paramsGeneral.weddingDate);
   const month = weddingDate.getMonth();
   const year = weddingDate.getFullYear();
   const date = weddingDate.getDate();
@@ -23,9 +23,12 @@ export default function Calendar() {
 
   return (
     <section className="w-full md:w-[95%] max-w-7xl mx-auto my-2 md:my-12">
-      <h2 className={`${APP_CONFIG.calendar.titleFontText} ${APP_CONFIG.calendar.titleSizeText} md:text-3xl text-center mb-8 md:mb-12 ${APP_CONFIG.calendar.titleColorText} tracking-widest uppercase`}>
-        {APP_CONFIG.calendar.titleMsgText}
-      </h2>
+     
+
+      <h2 className={`text-center mb-8 md:mb-16 tracking-widest uppercase text-2xl md:text-3xl`}
+        style={{ color: APP_CONFIG.calendar.titleTextColor, fontFamily: APP_CONFIG.calendar.titleTextFont }}>
+        {APP_CONFIG.calendar.titleMsgText} </h2>
+
       <div className={`${APP_CONFIG.calendar.backgroundColor} overflow-hidden`}>
         <div className="flex flex-row items-stretch p-4 sm:p-6 md:p-2 gap-4 sm:gap-6 md:gap-4">
           
@@ -53,7 +56,8 @@ export default function Calendar() {
           viewport={{ once: true }}
           className="w-3/5 md:w-2/3 flex flex-col justify-center py-2 md:py-4"
         >
-          <h2 className={`${APP_CONFIG.calendar.monthFontText} text-sm sm:text-lg md:text-2xl ${APP_CONFIG.calendar.monthColorText} tracking-widest uppercase mb-4 md:mb-8 text-center`}>
+          <h2 className="text-sm sm:text-lg md:text-2xl tracking-widest uppercase mb-4 md:mb-8 text-center"
+           style={{ color: APP_CONFIG.calendar.monthColorText, fontFamily: APP_CONFIG.calendar.monthFontText }}>
            
            
             {monthNames[month]} {year}
@@ -62,7 +66,8 @@ export default function Calendar() {
           <div className="w-full max-w-sm mx-auto">
             <div className="grid grid-cols-7 gap-1 md:gap-2 text-center mb-2 md:mb-6">
               {daysOfWeek.map(day => (
-                <div key={day} className={`${APP_CONFIG.calendar.dayweekColorText} ${APP_CONFIG.calendar.dayweekSizeText} ${APP_CONFIG.calendar.dayweekFontText} tracking-wider sm:text-xs md:text-sm`}>
+                <div key={day} className={`text-[10px] tracking-wider sm:text-xs md:text-sm`}
+                 style={{ color: APP_CONFIG.calendar.dayweekColorText, fontFamily: APP_CONFIG.calendar.dayweekFontText }}>
                   
                   
                   {day}

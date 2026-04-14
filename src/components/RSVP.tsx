@@ -18,9 +18,9 @@ export default function RSVP() {
     if (webhookUrl) {
       try {
         const payload = {
-          nombre: APP_CONFIG.guestName,
+          nombre: APP_CONFIG.paramsGeneral.guestName,
           mensaje: formData.message,
-          numeroInvitados: APP_CONFIG.numberGuests,
+          numeroInvitados: APP_CONFIG.paramsGeneral.numberGuests,
           asistencia: formData.attendance,
           fechaConfirmacion: new Date().toISOString()
         };
@@ -65,7 +65,8 @@ export default function RSVP() {
               {!isFormVisible ? (
                 <button
                   onClick={() => setIsFormVisible(true)}
-                  className={`${APP_CONFIG.rsvp.buttonColor} ${APP_CONFIG.rsvp.buttonTextColor} px-10 py-4 rounded-full text-lg  ${APP_CONFIG.rsvp.buttonTextFont} hover:scale-105 transition-transform shadow-xl`}
+                  className="px-10 py-4 rounded-full text-lg   hover:scale-105 transition-transform shadow-xl"
+                  style={{ backgroundColor: APP_CONFIG.rsvp.buttonColor, color:APP_CONFIG.rsvp.buttonTextColor, fontFamily: APP_CONFIG.rsvp.buttonTextFont}}
                 >
                   {APP_CONFIG.rsvp.buttonText}
                 </button>
@@ -77,9 +78,11 @@ export default function RSVP() {
                   className="space-y-6 text-left"
                 >
                   <div>
-                    <h2 className={`${APP_CONFIG.rsvp.title2TextFont} text-3xl text-center mb-12 ${APP_CONFIG.rsvp.title2TextColor}`}> {APP_CONFIG.rsvp.title2TextMsg} </h2>
+                    <h2 className="text-3xl text-center mb-12"
+                    style={{ fontFamily: APP_CONFIG.rsvp.title2TextFont, color:APP_CONFIG.rsvp.title2TextColor}}> {APP_CONFIG.rsvp.title2TextMsg} </h2>
                     
-                    <label className= {`block text-sm ${APP_CONFIG.rsvp.title3TextFont} ${APP_CONFIG.rsvp.title3TextColor} uppercase tracking-widest mb-4 `}>
+                    <label className="block text-sm uppercase tracking-widest mb-4"
+                     style={{ fontFamily: APP_CONFIG.rsvp.title3TextFont, color:APP_CONFIG.rsvp.title3TextColor}}>
                      
                       {APP_CONFIG.rsvp.title3TextMsg}
                     </label>
@@ -87,22 +90,24 @@ export default function RSVP() {
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, attendance: "si" })}
-                        className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
+                        className="py-3 px-4 rounded-xl border-2 transition-all font-medium"
+                        style={
                           formData.attendance === "si"
                             ? APP_CONFIG.rsvp.buttonYes1Style
                             : APP_CONFIG.rsvp.buttonYes2Style
-                        }`}
+                        }
                       >
-                         {APP_CONFIG.rsvp.buttonYesMsg}
-                      </button>
+                      {APP_CONFIG.rsvp.buttonYesMsg}
+                    </button>
                       <button
                         type="button"
                         onClick={() => setFormData({ ...formData, attendance: "no" })}
-                        className={`py-3 px-4 rounded-xl border-2 transition-all font-medium ${
-                          formData.attendance === "no"
+                        className="py-3 px-4 rounded-xl border-2 transition-all font-medium"
+                          style={
+                          formData.attendance === "si"
                             ? APP_CONFIG.rsvp.buttonNot1Style
                             : APP_CONFIG.rsvp.buttonNot2Style
-                        }`}
+                        }
                       >
                          {APP_CONFIG.rsvp.buttonNotMsg}
                       </button>
@@ -110,27 +115,39 @@ export default function RSVP() {
                   </div>
 
                   <div>
-                    <label className= {`block text-sm ${APP_CONFIG.rsvp.msgTextFont} ${APP_CONFIG.rsvp.msgTextColor} uppercase tracking-widest mb-2`}>
+                    <label className="block text-sm uppercase tracking-widest mb-2"
+                    style={{ fontFamily: APP_CONFIG.rsvp.msgTextFont, color:APP_CONFIG.rsvp.msgTextColor}}>
                      {APP_CONFIG.rsvp.msgTextMsg}
                     </label>
                     <textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`${APP_CONFIG.rsvp.textareaStyle}`}
-                      
-                    />
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full p-4 rounded-xl border-2 outline-none resize-none transition-all duration-300 shadow-sm focus:shadow-md"
+                    style={{
+                      backgroundColor: APP_CONFIG.rsvp.textareaStyle.backgroundColor,
+                      color: APP_CONFIG.rsvp.textareaStyle.colorText,
+                      borderColor: APP_CONFIG.rsvp.textareaStyle.borderColor,
+                      fontFamily: APP_CONFIG.rsvp.textareaStyle.fontFamily
+                    }}
+                  />
                   </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`${APP_CONFIG.rsvp.buttonSendStyle}`}
-                  >
-                    {isSubmitting ? (
-                      <span className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                    ) : (
-                      APP_CONFIG.rsvp.buttonSendMsg
-                    )}
-                  </button>
+                  <div className="flex justify-center">
+  <button
+    type="submit"
+    disabled={isSubmitting}
+    className="py-3 px-6 rounded-xl border-2 font-medium transition-all duration-300 shadow-md"
+    style={{
+      backgroundColor: APP_CONFIG.rsvp.buttonSendStyle.backgroundColor,
+      color: APP_CONFIG.rsvp.buttonSendStyle.color,
+      borderColor: APP_CONFIG.rsvp.buttonSendStyle.borderColor,
+      fontFamily: APP_CONFIG.rsvp.buttonSendStyle.fontFamily,
+      cursor: isSubmitting ? 'not-allowed' : 'pointer',
+      opacity: isSubmitting ? 0.6 : 1
+    }}
+  >
+    {APP_CONFIG.rsvp.buttonSendMsg}
+  </button>
+</div>
                 </motion.form>
               )}
             </motion.div>
@@ -147,15 +164,18 @@ export default function RSVP() {
               >
                 <X className="w-6 h-6" />
               </button>
-              <CheckCircle2 className={`w-16 h-16 ${APP_CONFIG.rsvp.confirmationCircleColor} mx-auto mb-6 `} />
+              <CheckCircle2 className="w-16 h-16  mx-auto mb-6" 
+               style={{ color:APP_CONFIG.rsvp.confirmationCircleColor }}/>
               
-              <h3 className= {`${APP_CONFIG.rsvp.confirmationTitleTextFont} text-2xl mb-4 ${APP_CONFIG.rsvp.confirmationTitleTextColor}`}>{APP_CONFIG.rsvp.confirmationTitleTextMsg}</h3>
+              <h3 className="text-2xl mb-4"
+               style={{ color:APP_CONFIG.rsvp.confirmationTitleTextColor, fontFamily: APP_CONFIG.rsvp.confirmationTitleTextFont}}>{APP_CONFIG.paramsGeneral.guestName}</h3>
              
-              <p className={`${APP_CONFIG.rsvp.confirmationTextColor} ${APP_CONFIG.rsvp.confirmationTextFont} leading-relaxed`}>
+              <p className="leading-relaxed"
+              style={{ color:APP_CONFIG.rsvp.confirmationTextColor, fontFamily:APP_CONFIG.rsvp.confirmationTextFont }}>
               
                 {formData.attendance === "si" 
-                  ? `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.successMessage}`
-                  : `${APP_CONFIG.guestName} ${APP_CONFIG.rsvp.rejectedMessage}`}
+                  ? ` ${APP_CONFIG.rsvp.successMessage}`
+                  : ` ${APP_CONFIG.rsvp.rejectedMessage}`}
               </p>
             </motion.div>
           )}

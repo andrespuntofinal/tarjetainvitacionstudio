@@ -38,13 +38,13 @@ export default function Banner() {
           style={{ color: APP_CONFIG.banner.textColor, fontFamily: APP_CONFIG.banner.titleFont }}
           
         >
-          {APP_CONFIG.coupleNames}
+          {APP_CONFIG.paramsGeneral.coupleNames}
         </motion.h1>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "100px" }}
           transition={{ delay: 1, duration: 0.8 }}
-          className={` h-px my-6 ${APP_CONFIG.banner.lineColor}`}
+          className={` h-px my-6 `}
         />
         <motion.p
           initial={{ opacity: 0 }}

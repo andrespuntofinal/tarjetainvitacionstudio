@@ -18,7 +18,8 @@ export default function DressCode() {
   return (
     <section className="w-full h-full flex flex-col">
       <div className="w-full mx-auto flex-1 flex flex-col">
-        <h2 className={` ${APP_CONFIG.dressCode.titleFont} text-xl md:text-2xl text-center mb-6 md:mb-10 tracking-widest uppercase ${APP_CONFIG.dressCode.titleColor}`}
+        <h2 className="text-xl md:text-2xl text-center mb-6 md:mb-10 tracking-widest uppercase"
+           style={{ color: APP_CONFIG.dressCode.titleColor, fontFamily: APP_CONFIG.dressCode.titleFont }}
           >
           
           { APP_CONFIG.dressCode.titletext}
@@ -37,8 +38,9 @@ export default function DressCode() {
               <div className={`${APP_CONFIG.dressCode.circleStyle}`}>
                 <div
                   className=
-                  {`w-5 h-5 md:w-12 md:h-12 ${APP_CONFIG.dressCode.iconColor}`}
+                  "w-5 h-5 md:w-12 md:h-12"
                   style={{
+                    backgroundColor: APP_CONFIG.dressCode.iconbackgroundColor,
                     WebkitMaskImage: `url(${item.iconUrl})`,
                     maskImage: `url(${item.iconUrl})`,
                     WebkitMaskRepeat: "no-repeat",
@@ -50,9 +52,11 @@ export default function DressCode() {
                   }}
                 />
               </div>
-              <h3 className={` ${APP_CONFIG.dressCode.title2Font} text-lg md:text-3xl mb-2 md:mb-4 ${APP_CONFIG.dressCode.title2Color} leading-relaxed`}>{item.title}</h3>
+              <h3 className="text-lg md:text-3xl mb-2 md:mb-4 leading-relaxed"
+               style={{ fontFamily: APP_CONFIG.dressCode.title2Font, color: APP_CONFIG.dressCode.title2Color }}>{item.title}</h3>
               
-              <p className={` ${APP_CONFIG.dressCode.text2Color} ${APP_CONFIG.dressCode.text2Font} text-xs sm:text-sm md:text-base leading-relaxed`}>
+              <p className="text-xs sm:text-sm md:text-base leading-relaxed"
+              style={{ fontFamily: APP_CONFIG.dressCode.text2Font, color: APP_CONFIG.dressCode.text2Color }}>
                 
                 {item.text}
               </p>

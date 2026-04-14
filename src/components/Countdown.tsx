@@ -11,7 +11,7 @@ export default function Countdown() {
   });
 
   useEffect(() => {
-    const targetDate = new Date(APP_CONFIG.weddingDate).getTime();
+    const targetDate = new Date(APP_CONFIG.paramsGeneral.weddingDate).getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -43,7 +43,9 @@ export default function Countdown() {
   return (
     <section className={`${APP_CONFIG.countdown.backgroundColor} py-12 px-2 md:px-6 flex flex-col justify-center`}>
       <div className="w-full max-w-3xl mx-auto text-center">
-        <h2 className={`text-center mb-8 md:mb-16 tracking-widest uppercase ${APP_CONFIG.countdown.textSize} ${APP_CONFIG.countdown.textColor}`}> {APP_CONFIG.countdown.textMsg} </h2>
+        <h2 className={`text-center mb-8 md:mb-16 tracking-widest uppercase text-2xl md:text-3xl`}
+        style={{ color: APP_CONFIG.countdown.titleTextColor, fontFamily: APP_CONFIG.countdown.titleTextFont }}
+        > {APP_CONFIG.countdown.titleTextMsg} </h2>
         
         
         <div className="flex flex-row justify-center items-center gap-2 md:gap-8">
@@ -60,13 +62,15 @@ export default function Countdown() {
                 borderColor: APP_CONFIG.countdown.borderColor,
                 backgroundColor: APP_CONFIG.countdown.backgroundColor2,
               }}
-              className={`flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full ${APP_CONFIG.countdown.borderColorCircle} ${APP_CONFIG.countdown.backgroundColorCircle} shadow-xl  transition-all duration-300`}
-              
+              className="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full border-4 shadow-xl  transition-all duration-300"
+              style={{ borderColor: APP_CONFIG.countdown.borderColorCircle, backgroundColor: APP_CONFIG.countdown.backgroundColorCircle}}
             >
-              <span className={`text-2xl sm:text-3xl md:text-5xl ${APP_CONFIG.countdown.numberFontText} ${APP_CONFIG.countdown.numberColorText1} leading-none`}>
+              <span className="text-2xl sm:text-3xl md:text-5xl leading-none"
+              style={{ color: APP_CONFIG.countdown.numberColorText1, fontFamily:APP_CONFIG.countdown.numberFontText  }}>
                 {item.value}
               </span>
-              <span className={`text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest mt-1 md:mt-2 ${APP_CONFIG.countdown.numberColorText2}`}>
+              <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-widest mt-1 md:mt-2"
+               style={{ color: APP_CONFIG.countdown.numberColorText2, fontFamily:APP_CONFIG.countdown.numberFontText  }}>
                 {item.label}
               </span>
             </motion.div>

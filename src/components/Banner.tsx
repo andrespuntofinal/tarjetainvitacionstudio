@@ -34,7 +34,7 @@ export default function Banner() {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className={`${APP_CONFIG.banner.titleSize} tracking-widest drop-shadow-lg`}
+          className= "text-5xl md:text-7xl tracking-widest drop-shadow-lg"
           style={{ color: APP_CONFIG.banner.textColor, fontFamily: APP_CONFIG.banner.titleFont }}
           
         >
@@ -50,7 +50,7 @@ export default function Banner() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className={`${APP_CONFIG.banner.subtitleSize}`}
+          className={ `text-3xl italic drop-shadow-md"`}
           style={{ color: APP_CONFIG.banner.textColor, fontFamily: APP_CONFIG.banner.subtitleFont }}
         >
           {APP_CONFIG.banner.subtextMsg}

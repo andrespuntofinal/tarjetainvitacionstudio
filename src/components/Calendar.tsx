@@ -29,7 +29,7 @@ export default function Calendar() {
         style={{ color: APP_CONFIG.calendar.titleTextColor, fontFamily: APP_CONFIG.calendar.titleTextFont }}>
         {APP_CONFIG.calendar.titleMsgText} </h2>
 
-      <div className={`${APP_CONFIG.calendar.backgroundColor} overflow-hidden`}>
+      <div className="w-full md:w-[95%] max-w-4xl mx-auto my-4 md:my-12 md:rounded-3xl shadow-xl px-4 md:px-8 px-4 md:px-8 overflow-hidden">
         <div className="flex flex-row items-stretch p-4 sm:p-6 md:p-2 gap-4 sm:gap-6 md:gap-4">
           
           {/* Photo Side */}

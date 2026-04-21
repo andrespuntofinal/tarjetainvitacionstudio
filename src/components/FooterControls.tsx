@@ -33,7 +33,7 @@ export default function FooterControls({ onClose }: FooterControlsProps) {
 
   return (
     <div className="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
-      <audio ref={audioRef} src={APP_CONFIG.paramsGeneral.musicUrl} loop />
+      <audio ref={audioRef} src={APP_CONFIG.banner.musicUrl} loop />
       
       <button
         onClick={toggleMusic}

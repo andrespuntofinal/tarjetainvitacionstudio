@@ -28,14 +28,28 @@ export default function DressCode() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={`${APP_CONFIG.dressCode.cardStyle}`}
-        >
+          className={`flex-1 py-6 px-1 md:p-10 rounded-none md:rounded-3xl shadow-xl flex flex-row items-start justify-center relative overflow-hidden divide-x divide-[#A5ADB8]/30 gap-0 `}
+          style={{
+           background: `linear-gradient(
+          to bottom right,
+          ${APP_CONFIG.dressCode.backgroundColorFrom},
+          ${APP_CONFIG.dressCode.backgroundColorVia},
+          ${APP_CONFIG.dressCode.backgroundColorTo}
+          )`,
+          border: `1px solid ${APP_CONFIG.dressCode.boderColor}`
+          }}
+          >
           {details.map((item, index) => (
             <div
               key={item.title}
               className="flex-1 flex flex-col items-center text-center px-1 md:px-8 group w-full"
             >
-              <div className={`${APP_CONFIG.dressCode.circleStyle}`}>
+              <div className={`w-10 h-10 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-3 md:mb-6 `}
+              style={{
+              background: ` ${APP_CONFIG.dressCode.backgroundColorIconMoments}`,
+              border: `2px solid ${APP_CONFIG.dressCode.borderColorIconMoments}`
+              }}
+              >
                 <div
                   className=
                   "w-5 h-5 md:w-12 md:h-12"

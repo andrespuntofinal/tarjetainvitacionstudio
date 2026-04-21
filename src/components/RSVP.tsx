@@ -51,7 +51,7 @@ export default function RSVP() {
   };
 
   return (
-    <section className={`${APP_CONFIG.rsvp.backgroundColor} py-24 px-6`}>
+    <section className="w-full md:w-[95%] max-w-7xl mx-auto my-4 md:my-12 md:rounded-3xl relative overflow-hidden py-24 px-6">
       <div className="max-w-xl mx-auto text-center">
         <AnimatePresence mode="wait">
           {!isSubmitted ? (

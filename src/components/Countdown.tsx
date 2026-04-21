@@ -41,7 +41,17 @@ export default function Countdown() {
   ];
 
   return (
-    <section className={`${APP_CONFIG.countdown.backgroundColor} py-12 px-2 md:px-6 flex flex-col justify-center`}>
+    <section className={`w-full my-4 md:my-12 md:rounded-3xl  backdrop-blur-lg  relative overflow-hidden py-12 px-2 md:px-6 flex flex-col justify-center`}
+    style={{
+    background: `linear-gradient(
+      to bottom right,
+      ${APP_CONFIG.countdown.backgroundColorFrom},
+      ${APP_CONFIG.countdown.backgroundColorVia},
+      ${APP_CONFIG.countdown.backgroundColorTo}
+    )`,
+    border: `1px solid ${APP_CONFIG.countdown.boderColor}`
+  }}
+    >
       <div className="w-full max-w-3xl mx-auto text-center">
         <h2 className={`text-center mb-8 md:mb-16 tracking-widest uppercase text-2xl md:text-3xl`}
         style={{ color: APP_CONFIG.countdown.titleTextColor, fontFamily: APP_CONFIG.countdown.titleTextFont }}

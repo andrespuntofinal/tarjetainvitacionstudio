@@ -31,7 +31,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
       <div 
         className="fixed inset-0 z-0 opacity-70 pointer-events-none"
         style={{
-          backgroundImage: `url(${APP_CONFIG.landing1.background})`,
+          backgroundImage: `url(${APP_CONFIG.envelope.backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -46,12 +46,7 @@ export default function Envelope({ onOpenComplete }: EnvelopeProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <p 
-          className={`text-2xl md:text-3xl lg:text-4xl ${APP_CONFIG.landing1.messageColor}`}
-          style={{ fontFamily: APP_CONFIG.landing1.messageFont }}
-        >
-          {APP_CONFIG.landing1.message}
-        </p>
+      
       </motion.div>
 
       {/* Envelope Container */}

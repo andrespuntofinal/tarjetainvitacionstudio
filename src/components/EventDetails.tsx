@@ -32,14 +32,28 @@ export default function EventDetails() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className= {APP_CONFIG.eventDetails.cardStyle} 
+          className={`flex-1 py-6 px-1 md:p-10 rounded-none md:rounded-3xl shadow-xl flex flex-row items-start justify-center relative overflow-hidden divide-x divide-[#A5ADB8]/30 gap-0`}
+          style={{
+           background: `linear-gradient(
+          to bottom right,
+          ${APP_CONFIG.eventDetails.backgroundColorFrom},
+          ${APP_CONFIG.eventDetails.backgroundColorVia},
+          ${APP_CONFIG.eventDetails.backgroundColorTo}
+          )`,
+          border: `1px solid ${APP_CONFIG.eventDetails.boderColor}`
+          }}
         >
           {details.map((item, index) => (
             <div
               key={item.title}
               className="flex-1 flex flex-col items-center text-center px-1 md:px-8 group w-full"
             >
-              <div className={`${APP_CONFIG.eventDetails.detailsIcons}`}>
+              <div className={`w-10 h-10 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-3 md:mb-6 `}
+              style={{
+              background: ` ${APP_CONFIG.eventDetails.backgroundColorIconMoments}`,
+              border: `2px solid ${APP_CONFIG.eventDetails.borderColorIconMoments}`
+              }}
+              >
                 <item.icon className="w-5 h-5 md:w-8 md:h-8"
                 style={{ color: APP_CONFIG.eventDetails.detailIconColor }}/>
                 
@@ -68,7 +82,7 @@ export default function EventDetails() {
                 href={item.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className= {`${APP_CONFIG.eventDetails.detailsMapsStyle}`}> 
+                className="mt-auto inline-flex items-center justify-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-5 md:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm font-medium tracking-wide border border-[#D7B272]/60 text-[#19284c] bg-white/70 backdrop-blur-sm hover:bg-[#D7B272]/10 hover:border-[#D7B272] ransition-all duration-300 ease-out"> 
               <svg
                 className="w-3.5 h-3.5 md:w-4 md:h-4 opacity-80"
                 viewBox="0 0 24 24"

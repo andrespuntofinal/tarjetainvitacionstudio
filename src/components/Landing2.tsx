@@ -26,13 +26,13 @@ export default function Landing2({ onClose }: Landing2Props) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="min-h-screen w-full relative"
-      style={{ backgroundColor: APP_CONFIG.landing2.colorLight }}
+      style={{ backgroundColor: APP_CONFIG.message.backgroundcolor }}
     >
       {/* Subtle Floral Background */}
       <div 
         className="fixed inset-0 z-0 opacity-25 pointer-events-none"
         style={{
-          backgroundImage: `url(${APP_CONFIG.landing2.background})`,
+          backgroundImage: `url(${APP_CONFIG.message.backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'

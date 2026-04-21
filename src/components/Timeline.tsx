@@ -20,7 +20,7 @@ export default function Timeline() {
   };
 
   return (
-    <section className={`${timeline.backgroundColor} py-12 px-2 md:px-6`}>
+    <section className="w-full my-4 md:my-12 md:rounded-3xl border-3 border-[#A5ADB8]/30 backdrop-blur-lg relative overflow-hidden py-12 px-2 md:px-6">
       <div className="max-w-5xl mx-auto">
         <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 md:mb-12 tracking-widest uppercase text-[#735309]">
           Itinerario
